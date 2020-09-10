@@ -19,6 +19,7 @@ footer p{
     font-size: 14px;
     margin: 0;
 }
+
 section{
     margin: 8px
 }
@@ -41,7 +42,6 @@ section{
 
 .icon img{
     border-radius: 50%;
-    
 }
 
 .info{
