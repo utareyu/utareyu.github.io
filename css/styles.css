@@ -17,7 +17,7 @@ footer{
 footer p{
     text-align: center;
     font-size: 14px;
-    margin-bottom: 60px;
+    margin: 0;
 }
 section{
     margin: 8px
@@ -37,10 +37,6 @@ section{
     width: 400px;
     margin-left: auto;
     margin-right: auto;
-}
-
-.items section li{
-
 }
 
 .icon img{
