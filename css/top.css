@@ -1,17 +1,4 @@
 @charset "utf-8";
-
-body{
-    font-family: sans-serif;
-    background: #0f3057;
-    color: aliceblue;
-    margin: 0;
-}
-
-header{
-    background: #00000030;
-    padding: 0.5em 0px;
-}
-
 #container{
     display: flex;
     align-items: center;
@@ -33,13 +20,6 @@ header img{
     height: 150px;
 }
 
-main{
-    text-align: center;
-    font-size: 125%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
 main h3{
     text-align: center;
 }
@@ -54,35 +34,6 @@ main ul{
     list-style-type: none;
 }
 
-footer{
-    background: #00000030;
-    text-align: center;
-}
-
-footer p{
-    margin: 0;
-    padding: 0.5em;
-}
-/* リンク色 */
-a{
-    color: #80baee;
-    text-decoration: none;
-}
-
-a :hover{
-    color:hsl(208, 76%, 80%);
-    text-decoration: none;
-}
-
-a :active{
-    color: hsl(208, 76%, 50%);
-    text-decoration: none;
-}
-
-a :visited{
-    color: hsl(208, 60%, 40%);
-    text-decoration: none;
-}
 /* アイコン*/
 #mytwitter::before{
     content: '';
@@ -104,8 +55,4 @@ a :visited{
     background-image: url(img/GitHub.png);
     background-size: contain;
     vertical-align: middle;
-}
-
-main > section + section{
-    margin-top: 40px;
 }
