@@ -63,29 +63,33 @@ li {
     line-height: 1.5em;
 }
 
+main>section+section {
+    margin-top: 40px;
+}
+
 
 /* リンク色 */
 
 a {
     color: #80baee;
     text-decoration: none;
+    transition: .3s ease;
 }
 
 a:hover {
     color: hsl(208, 76%, 80%);
     text-decoration: none;
+    transition: .3s ease;
 }
 
 a:active {
     color: hsl(208, 76%, 50%);
     text-decoration: none;
+    transition: .3s ease;
 }
 
 a:visited {
-    color: hsl(208, 60%, 40%);
+    color: hsl(213, 71%, 40%);
     text-decoration: none;
-}
-
-main>section+section {
-    margin-top: 40px;
+    transition: .3s ease;
 }
