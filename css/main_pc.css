@@ -70,8 +70,14 @@ main>section+section {
 
 /* リンク色 */
 
-a {
+a:link {
     color: #80baee;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+a:visited {
+    color: hsl(213, 71%, 40%);
     text-decoration: none;
     transition: .3s ease;
 }
@@ -84,12 +90,6 @@ a:hover {
 
 a:active {
     color: hsl(208, 76%, 50%);
-    text-decoration: none;
-    transition: .3s ease;
-}
-
-a:visited {
-    color: hsl(213, 71%, 40%);
     text-decoration: none;
     transition: .3s ease;
 }
