@@ -5,6 +5,10 @@ header img {
     height: 150px;
 }
 
+.headcol h1 {
+    margin-bottom: 0;
+}
+
 ul {
     text-align: left;
     display: inline-block;
