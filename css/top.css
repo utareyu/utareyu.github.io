@@ -1,148 +1,159 @@
 @charset "utf-8";
-header img {
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
+header
+	img {
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
 }
 
-.headcol h1 {
-    margin-bottom: 0;
+.headcol
+	h1 {
+	margin-bottom: 0;
 }
 
 ul {
-    text-align: left;
-    display: inline-block;
-    margin: 0;
-    padding: 0 0 0 1.2em;
+	text-align: left;
+	display: inline-block;
+	margin: 0;
+	padding-bottom: 1.2em;
 }
 
-#contact li {
-    list-style-type: none;
+#contact
+	li {
+	list-style-type: none;
 }
 
-#contact ul {
-    padding: 0;
+#contact
+	ul {
+	padding: 0;
 }
 
 dl {
-    text-align: center;
+	text-align: center;
 }
 
 .tweet {
-    margin: 30px 0px 0px;
-    text-align: right;
+	margin-top: 30px;
+	text-align: right;
 }
-
 
 /* アイコン*/
 
 #mytwitter::before {
-    content: '';
-    margin-right: 5px;
-    display: inline-block;
-    width: 1.2em;
-    height: 1.2em;
-    background-image: url(../img/Twitter.png);
-    background-size: contain;
-    vertical-align: middle;
+	content: "";
+	margin-right: 5px;
+	display: inline-block;
+	width: 1.2em;
+	height: 1.2em;
+	background-image: url(../img/Twitter.png);
+	background-size: contain;
+	vertical-align: middle;
 }
 
 #mygithub::before {
-    content: '';
-    margin-right: 5px;
-    display: inline-block;
-    width: 1.2em;
-    height: 1.2em;
-    background-image: url(../img/GitHub.png);
-    background-size: contain;
-    vertical-align: middle;
+	content: "";
+	margin-right: 5px;
+	display: inline-block;
+	width: 1.2em;
+	height: 1.2em;
+	background-image: url(../img/GitHub.png);
+	background-size: contain;
+	vertical-align: middle;
 }
 
+@media(max-width:679px){
+	.tweet{
+		text-align: center;		
+	}
+}
 
 /* ポップアップ */
 
-.popup_wrap input {
-    display: none;
+.popup_wrap
+	input {
+	display: none;
 }
 
 .popup_overlay {
-    display: flex;
-    justify-content: center;
-    overflow: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    width: 100%;
-    height: 100%;
-    background: #00000030;
-    opacity: 0;
-    transition: opacity 0.5s, transform 0s 0.5s;
-    transform: scale(0);
+	display: flex;
+	justify-content: center;
+	overflow: auto;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	background: #00000030;
+	opacity: 0;
+	transition: opacity 0.5s,transform 0s 0.5s;
+	transform: scale(0);
 }
 
 .popup_trigger {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
 .popup_content {
-    position: relative;
-    align-self: center;
-    width: 75%;
-    max-width: 800px;
-    box-sizing: border-box;
-    background: #000000af;
-    line-height: 1.4em;
-    transition: 0.5s;
-    border-radius: 12px;
-    box-shadow: 0 0 5px rgba(94, 94, 94, 0.7);
+	position: relative;
+	align-self: center;
+	width: 75%;
+	max-width: 800px;
+	box-sizing: border-box;
+	background: #000000af;
+	line-height: 1.4em;
+	transition: 0.5s;
+	border-radius: 12px;
+	box-shadow: 0 0 5px rgba(94, 94, 94, 0.7);
 }
 
 .popup_content {
-    padding: 20px 20px 5px 20px;
-    text-align: center;
+	padding: 20px 20px 5px 20px;
+	text-align: center;
 }
 
 dt {
-    padding: 20px 0 0 0;
-    text-align: center;
-    margin: 0;
+	padding: 20px 0 0 0;
+	text-align: center;
+	margin: 0;
 }
 
 dd {
-    text-align: center;
-    margin: 0;
+	text-align: center;
+	margin: 0;
 }
 
 .close_btn {
-    position: absolute;
-    top: 14px;
-    right: 16px;
-    font-size: 30px;
-    cursor: pointer;
-    color: hsl(213, 71%, 60%);
+	position: absolute;
+	top: 14px;
+	right: 16px;
+	font-size: 30px;
+	cursor: pointer;
+	color: hsl(213, 71%, 60%);
 }
 
-.popup_wrap input:checked~.popup_overlay {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.5s;
+.popup_wrap
+	input:checked
+	~ .popup_overlay {
+	opacity: 1;
+	transform: scale(1);
+	transition: opacity 0.5s;
 }
 
 .open_btn {
-    color: #80baee;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: .3s ease;
-    border: 2px solid #80baee;
-    padding: 3px 10px;
-    font-weight: bold;
+	color: #80baee;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 0.3s ease;
+	border: 2px solid #80baee;
+	padding: 3px 10px;
+	font-weight: bold;
 }
 
 .open_btn:hover {
-    color: hsl(208, 76%, 80%);
-    border-color: hsl(208, 76%, 80%);
-    transition: .3s ease;
+	color: hsl(208, 76%, 80%);
+	border-color: hsl(208, 76%, 80%);
+	transition: 0.3s ease;
 }
