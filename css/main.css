@@ -24,6 +24,10 @@
 		justify-content: space-between;
 		text-align: center;
 	}
+
+	body{
+		font-size: 125%;
+	}
 }
 
 @media(max-width:679px){
@@ -39,7 +43,6 @@ body {
 	background: #0f3057;
 	color: aliceblue;
 	margin: 0;
-	font-size: 125%;
 }
 
 .main {
