@@ -80,6 +80,9 @@ main
 	margin-top: 40px;
 }
 
+.pagenav{
+	text-align: center;
+}
 /* リンク色 */
 
 a:link {
