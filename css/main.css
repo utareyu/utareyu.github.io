@@ -83,6 +83,12 @@ main
 .pagenav{
 	text-align: center;
 }
+
+.memo{
+	margin-left: 1em;
+	border-left: 1px solid  aliceblue;
+	padding-left: 1em;
+}
 /* リンク色 */
 
 a:link {
