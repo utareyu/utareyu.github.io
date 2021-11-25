@@ -38,8 +38,19 @@ pre.prettyprint {
 	border: 1px solid #424849;
 }
 
+@media (min-width:680px){
+	pre.prettyprint li{
+		font-size: 12px;
+	}
+}
+
+@media(max-width:679px){
+	pre.prettyprint li{
+		font-size: 8px;
+	}
+}
+
 pre.prettyprint li{
-	font-size: 12px;
 	line-height: 1.4;
 	margin: 0;
 	padding-left: 1rem;
