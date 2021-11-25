@@ -100,6 +100,8 @@ main
 code{
 	font-family: monospace;
 	background-color: rgba(0,0,0,0.2);
+	border: 1px solid #424849;
+	border-radius: 5px;
 }
 
 /* リンク色 */
