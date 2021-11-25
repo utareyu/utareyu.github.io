@@ -96,6 +96,12 @@ main
 	border-left: 1px solid  aliceblue;
 	padding-left: 1em;
 }
+
+code{
+	font-family: monospace;
+	background-color: rgba(0,0,0,0.2);
+}
+
 /* リンク色 */
 
 a:link {
