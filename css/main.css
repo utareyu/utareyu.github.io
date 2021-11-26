@@ -101,6 +101,10 @@ main
 	padding-left: 1em;
 }
 
+.note{
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
 code{
 	font-family: monospace;
 	margin: 0 5px 0;
