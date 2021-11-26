@@ -106,12 +106,14 @@ main
 }
 
 code{
-	font-family: monospace;
+	font-family: consolas;
+	font-size: 80%;
 	margin: 0 5px 0;
 	border: 1px solid #424849;
 	border-radius: 5px;
 	background-color: #1b2426;
 }
+
 /* リンク色 */
 
 a:link {
