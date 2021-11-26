@@ -106,12 +106,16 @@ main
 }
 
 code{
-	font-family: consolas;
+	font-family: consolas, monospace;
 	font-size: 80%;
 	margin: 0 5px 0;
 	border: 1px solid #424849;
 	border-radius: 5px;
 	background-color: #1b2426;
+}
+
+.cred{	
+	color: #f92672;
 }
 
 /* リンク色 */

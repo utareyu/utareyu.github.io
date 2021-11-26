@@ -26,7 +26,7 @@ pre.prettyprint, code.prettyprint {
 	-ms-border-radius: 8px;
 	-khtml-border-radius: 8px;
 	border-radius: 8px;
-	font-family: consolas, menlo, courier, monospace;
+	font-family: consolas, monospace;
 	overflow: auto;
 	resize: horizontal;
 }
