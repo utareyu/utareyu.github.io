@@ -31,7 +31,7 @@ pre.prettyprint, code.prettyprint {
 	resize: horizontal;
 }
 
-pre.prettyprint {
+pre.prettyprint{
 	width: 80%;
 	margin: 1em 2em 0;
 	white-space: pre-wrap;
@@ -39,13 +39,13 @@ pre.prettyprint {
 }
 
 @media (min-width:680px){
-	pre.prettyprint li{
+	pre.prettyprint{
 		font-size: 12px;
 	}
 }
 
 @media(max-width:679px){
-	pre.prettyprint li{
+	pre.prettyprint{
 		font-size: 10px;
 	}
 }
