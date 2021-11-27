@@ -1,4 +1,5 @@
 @charset "utf-8";
+
 .column {
 	display: flex;
 	flex-direction: column;
@@ -42,10 +43,6 @@
 	}
 }
 
-header{
-	text-align: center;
-}
-
 body {
 	font-family: sans-serif;
 	background: #0f3057;
@@ -53,15 +50,20 @@ body {
 	margin: 0;
 }
 
-.main {
-	text-align: center;
-}
 
 header {
+	text-align: center;
 	background: #00000030;
 	padding: 0.5em 0px;
 }
 
+main{
+	margin: 8px;
+}
+
+.main {
+	text-align: center;
+}
 nav {
 	order: -1;
 }
@@ -71,8 +73,7 @@ footer {
 	text-align: center;
 }
 
-footer
-	p {
+footer p {
 	margin: 0;
 	padding: 0.5em;
 }
