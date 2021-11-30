@@ -19,7 +19,7 @@ pre .atv, code .atv { color: #e6db74; } /* html/xml attribute value */
 pre .dec, code .dec { color: #ae81ff; } /* decimal */
 
 pre.prettyprint, code.prettyprint {
-	background-color: #2d2a2e;
+	background-color: #272822;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	-o-border-radius: 8px;
@@ -54,7 +54,7 @@ pre.prettyprint li{
 	line-height: 1.4;
 	margin: 0;
 	padding-left: 1rem;
-	background-color: #2d2a2e;
+	background-color: #272822;
 	list-style: decimal outside; 
 }
 
