@@ -19,7 +19,7 @@ pre .atv, code .atv { color: #e6db74; } /* html/xml attribute value */
 pre .dec, code .dec { color: #ae81ff; } /* decimal */
 
 pre.prettyprint, code.prettyprint {
-	background-color: #1b2426;
+	background-color: #2d2a2e;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	-o-border-radius: 8px;
@@ -92,6 +92,9 @@ ol.linenums {
 		-ms-border-radius:0;
 		-khtml-border-radius:0;
 		border-radius:0;
+	}
+	pre.prettyprint li{
+		background-color: #fff;
 	}
 
 	pre .str, code .str { color: #060; }

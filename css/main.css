@@ -1,5 +1,27 @@
 @charset "utf-8";
 
+/* 
+light
+text: #202124
+bg: #fff
+notebg: #0003
+notec: #000
+codebg: #364549
+
+blue
+text: aliceblue
+bg: #0f3057
+notebg: #fff3
+notec: #fff
+codebg: #2d2a2e
+
+black
+text:#eee
+bg:#222
+notebg: #fff3
+notec: #fff
+codebg: #2d2a2e
+*/
 .column {
 	display: flex;
 	flex-direction: column;
@@ -53,7 +75,7 @@ body {
 
 header {
 	text-align: center;
-	background: #00000030;
+	background: #0003;
 	padding: 0.5em 0px;
 }
 
@@ -69,7 +91,7 @@ nav {
 }
 
 footer {
-	background: #00000030;
+	background: #0003;
 	text-align: center;
 }
 
@@ -106,15 +128,16 @@ main
 	color: #fff;
 	width: fit-content;
 	padding: 5px;
-	background-color: rgba(255, 255, 255, 0.2);
+	background-color: #fff3;
 }
 
 code{
 	font-family: consolas, monospace;
 	font-size: 80%;
 	color: #fff;
-	margin: 0 5px 0;
+	margin: 0 5px;
 	border: 1px solid #424849;
+	padding: 1px 2px;
 	border-radius: 5px;
 	background-color: #1b2426;
 }
@@ -124,27 +147,26 @@ code{
 }
 
 /* リンク色 */
+a{
+	transition: .3s ease;
+}
 
 a:link {
-	color: #80baee;
+	color: #78b6ed;
 	text-decoration: none;
-	transition: 0.3s ease;
 }
 
 a:visited {
-	color: hsl(213, 71%, 40%);
+	color: #78b6ed;
 	text-decoration: none;
-	transition: 0.3s ease;
 }
 
 a:hover {
-	color: hsl(208, 76%, 80%);
+	color: #d2e7f9;
 	text-decoration: none;
-	transition: 0.3s ease;
 }
 
 a:active {
-	color: hsl(208, 76%, 50%);
+	color: #1f86e0;
 	text-decoration: none;
-	transition: 0.3s ease;
 }
