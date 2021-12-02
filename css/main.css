@@ -1,27 +1,30 @@
 @charset "utf-8";
 
-/* 
-light
-text: #202124
-bg: #fff
-notebg: #0003
-notec: #000
-codebg: #364549
+/* theme color */
+:root[theme='LIGHT'] {
+	--color-text: #202124;
+	--color-bg: #fff;
+	--color-notebg: #0003;
+	--color-notec: #000;
+	--color-codebg: #364549;
+}
 
-blue
-text: aliceblue
-bg: #0f3057
-notebg: #fff3
-notec: #fff
-codebg: #2d2a2e
+:root[theme='BLUE'] {
+	--color-text: aliceblue;
+	--color-bg: #0f3057;
+	--color-notebg: #fff3;
+	--color-notec: #fff;
+	--color-codebg: #2d2a2e;
+}
 
-black
-text:#eee
-bg:#222
-notebg: #fff3
-notec: #fff
-codebg: #2d2a2e
-*/
+:root[theme='BLACK'] {
+	--color-text:#eee;
+	--color-bg:#222;
+	--color-notebg: #fff3;
+	--color-notec: #fff;
+	--color-codebg: #2d2a2e;
+}
+
 .column {
 	display: flex;
 	flex-direction: column;
@@ -67,8 +70,8 @@ codebg: #2d2a2e
 
 body {
 	font-family: sans-serif;
-	background: #0f3057;
-	color: aliceblue;
+	background: var(--color-bg);
+	color: var(--color-text);
 	margin: 0;
 }
 
@@ -120,15 +123,15 @@ main
 
 .memo{
 	margin-left: 1em;
-	border-left: 1px solid  aliceblue;
+	border-left: 1px solid  var(--color-text);;
 	padding-left: 1em;
 }
 
 .note{
-	color: #fff;
+	color: var(--color-notec);
 	width: fit-content;
 	padding: 5px;
-	background-color: #fff3;
+	background-color: var(--color-notebg);
 }
 
 code{
@@ -139,7 +142,7 @@ code{
 	border: 1px solid #424849;
 	padding: 1px 2px;
 	border-radius: 5px;
-	background-color: #272822;
+	background-color: var(--color-codebg);
 }
 
 .cred{	
