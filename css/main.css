@@ -1,5 +1,7 @@
 @charset "utf-8";
-
+:root{
+	background:#222;
+}
 /* theme color */
 :root[theme='LIGHT'] {
 	--color-text: #202124;
