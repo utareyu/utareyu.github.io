@@ -1,13 +1,15 @@
 @charset "utf-8";
-header
-	img {
+header img {
 	border-radius: 50%;
 	width: 150px;
 	height: 150px;
 }
 
-.headcol
-	h1 {
+h3, h4 {
+	margin: 30px;
+}
+
+.headcol h1 {
 	margin-bottom: 0;
 }
 
@@ -18,13 +20,11 @@ ul {
 	padding-bottom: 1.2em;
 }
 
-#contact
-	li {
+#contact li {
 	list-style-type: none;
 }
 
-#contact
-	ul {
+#contact ul {
 	padding: 0;
 }
 
