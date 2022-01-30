@@ -33,31 +33,31 @@
 			<h2>入力欄</h2>
 			<div>
 				番号: 
-				<div class="sp"">各々最終行の値から-1</div>
+				<div class="sp">各々最終行の値から-1</div>
 				発言者: 
-				<div class="sp"">
+				<div class="sp">
 					<input type="radio" name="member" required="required" value="0"> うた<br>
 					<input type="radio" name="member" required="required" value="1"> えりんぎ<br>
 					<input type="radio" name="member" required="required" value="2"> しろる<br>
 					<input type="radio" name="member" required="required" value="3"> 紅茶<br>
 				</div>
 				日付:
-				<div  class="sp"">
+				<div  class="sp">
 					<input id="date" type="date" required="required"><br>
 				</div>
 				タグ:
-				<div class="sp"">
+				<div class="sp">
 					<input type="radio" name="tag" required="required" value="0"> 誤字<br>
 					<input type="radio" name="tag" required="required" value="1"> おつうわ<br>
 					<input type="radio" name="tag" required="required" value="2"> チャット<br>
 					<input type="radio" name="tag" required="required" value="3"> ツイート<br>
 				</div>
 				発言内容: 
-				<div class="sp"">
+				<div class="sp">
 					<input id="data" type="text" required="required"><br>
 				</div>
 				説明: (改行は半角スペースに置き換え)
-				<div class="sp"">
+				<div class="sp">
 					<textarea id="desc" rows="5" cols="40"></textarea><br>
 				</div>
 				<input type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value)"><br>
