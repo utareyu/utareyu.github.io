@@ -10,7 +10,7 @@
 	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
-	<script src="JSONconv.js" defer></script>
+	<script src="JSONconv.js"></script>
 	<title>発言まとめJSON入力補助</title>
 </head>
 <style>
@@ -33,7 +33,7 @@
 			<h2>入力欄</h2>
 			<div>
 				番号: 
-				<div class="sp">各々最終行の値から-1</div>
+				<div class="sp">各々最終行の値から+1</div>
 				発言者: 
 				<div class="sp">
 					<input type="radio" name="member" required="required" value="0"> うた<br>
@@ -63,7 +63,7 @@
 				<input type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value)"><br>
 				<h2>変換結果</h2>
 				<div class="sp">
-					<textarea id="new" rows="5" cols="40"></textarea><br>
+					<textarea id="result" rows="5" cols="40"></textarea><br>
 					<input type="button" value="コピー" id="copybtn" onclick="copynew()"><br>
 				</div>
 			</div>

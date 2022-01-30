@@ -28,8 +28,6 @@ function runConv(date,data,desc=null){
 		date=date.replace(/-/g,"");
 		date=date.slice(2);
 		desc=desc.replace(/\n/g," ");
-		//{"no":nnn, "member":[0~3], "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"}   , "desc":${desc}}
-		// newWord=`{"no":${no}, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
 		newWord=`{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
 		if(desc){
 			newWord+=`, "desc":"${desc}"}`
@@ -37,21 +35,20 @@ function runConv(date,data,desc=null){
 			newWord+=`}`
 		}
 
-		// console.log(no,",", member,",", date,",", tag,",", data,",", desc);
 		console.log(member,",", date,",", tag,",", data,",", desc);
 		console.log(newWord);
 
-			document.getElementById("new").value = newWord;
-			document.getElementById('copybtn').value="コピー";
+		result.value = newWord;
+		copybtn.value="コピー";
 	}
 }
 
 function copynew(){
-	navigator.clipboard.writeText(document.getElementById('new').value)
+	navigator.clipboard.writeText(result.value)
 			.then(() => {
-			document.getElementById('copybtn').value="コピーしたよ";
+				copybtn.value="コピーしたよ";
 	})
 			.catch(err => {
-				document.getElementById('copybtn').value="なんでかコピーできないよ";
+				copybtn.value="なんでかコピーできないよ";
 	})
 }
