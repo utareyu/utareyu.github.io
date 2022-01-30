@@ -35,7 +35,6 @@ function runConv(date,data,desc=null){
 			newWord+=`}`
 		}
 
-		console.log(member,",", date,",", tag,",", data,",", desc);
 		console.log(newWord);
 
 		result.value = newWord;
