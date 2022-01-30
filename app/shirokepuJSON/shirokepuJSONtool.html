@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://utareyu.github.io/themeColor.js"></script>
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<script src="JSONconv.js" defer></script>
+	<title>発言まとめJSON入力補助</title>
+</head>
+<style>
+	.sp{
+		margin: 0 0 1em 3em;
+	}
+	input:invalid {
+  border: solid 1px red;
+	}
+</style>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>発言まとめJSON入力補助ツール</h1>
+		</div>
+	</header>
+	<main>
+		<div style="line-height: 1.5em;">
+			<h2>入力欄</h2>
+			<div>
+				番号: 
+				<div class="sp"">各々最終行の値から-1</div>
+				発言者: 
+				<div class="sp"">
+					<input type="radio" name="member" required="required" value="0"> うた<br>
+					<input type="radio" name="member" required="required" value="1"> えりんぎ<br>
+					<input type="radio" name="member" required="required" value="2"> しろる<br>
+					<input type="radio" name="member" required="required" value="3"> 紅茶<br>
+				</div>
+				日付:
+				<div  class="sp"">
+					<input id="date" type="date" required="required"><br>
+				</div>
+				タグ:
+				<div class="sp"">
+					<input type="radio" name="tag" required="required" value="0"> 誤字<br>
+					<input type="radio" name="tag" required="required" value="1"> おつうわ<br>
+					<input type="radio" name="tag" required="required" value="2"> チャット<br>
+					<input type="radio" name="tag" required="required" value="3"> ツイート<br>
+				</div>
+				発言内容: 
+				<div class="sp"">
+					<input id="data" type="text" required="required"><br>
+				</div>
+				説明: (改行は半角スペースに置き換え)
+				<div class="sp"">
+					<textarea id="desc" rows="5" cols="40"></textarea><br>
+					<input type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value)"><br>
+				</div>
+				<h2>変換結果</h2>
+				<div class="sp">
+					<textarea id="new" rows="5" cols="40"></textarea><br>
+					<input type="button" value="コピー" id="copybtn" onclick="copynew()"><br>
+				</div>
+			</div>
+		</div>
+		<section>
+			<code>コンマと波括弧忘れずに.notice</code>
+			<pre class="prettyprint linenums lang-json">
+//...
+	{"no":nnn, "member":[0~3], "date":yymmdd, "tag":[0~3], "data":"XXX",}, //description(説明)はなくてもよい
+	{"no":nnn, "member":[0~3], "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"},
+	{"no":nnn, "member":[0~3], "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"}  //最終行
+],
+//...
+</pre>
+		</section>
+	</main>
+	<p style="text-align:center"><a href="https://utareyu.github.io/index.html">home</a></p>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
