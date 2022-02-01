@@ -3,12 +3,12 @@ function runConv(date,data,desc=null){
 		return;
 	} else {
 console.clear();
-		var max
+		var max={n};
 		fetch('https://mcbeeringi.github.io/shirokepu/main.json')
 		.then(r=>r.json())
 		.then(x=>{
-		  max=Math.max(...x.data.map(y=>y.no))+1;
-		  console.log(max);
+		  max.n=Math.max(...x.data.map(y=>y.no))+1;
+		  console.log(max.n);
 		  });
 		// const shiro= fetch('https://raw.githubusercontent.com/McbeEringi/shirokepu/main/main.json'); 
 		// console.log(shiro);
@@ -36,7 +36,7 @@ console.clear();
 		date=date.replace(/-/g,"");
 		date=date.slice(2);
 		desc=desc.replace(/\n/g," ");
-		newWord=`{"no":${max}, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
+		newWord=`{"no":${max.n}, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
 		if(desc){
 			newWord+=`, "desc":"${desc}"}`
 		} else {
