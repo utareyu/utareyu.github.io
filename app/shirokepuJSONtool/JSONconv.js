@@ -2,6 +2,14 @@ function runConv(date,data,desc=null){
 	if(date=="" || data==""){
 		return;
 	} else {
+console.clear();
+		var max
+		fetch('https://mcbeeringi.github.io/shirokepu/main.json')
+		.then(r=>r.json())
+		.then(x=>{
+		  max=Math.max(...x.data.map(y=>y.no))+1;
+		  console.log(max);
+		  });
 		// const shiro= fetch('https://raw.githubusercontent.com/McbeEringi/shirokepu/main/main.json'); 
 		// console.log(shiro);
 
@@ -28,7 +36,7 @@ function runConv(date,data,desc=null){
 		date=date.replace(/-/g,"");
 		date=date.slice(2);
 		desc=desc.replace(/\n/g," ");
-		newWord=`{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
+		newWord=`{"no":${max}, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
 		if(desc){
 			newWord+=`, "desc":"${desc}"}`
 		} else {
