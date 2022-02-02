@@ -54,14 +54,14 @@
 				</div>
 				発言内容: 
 				<div class="sp">
-					<input id="data" type="text" required="required"><br>
+					<input id="data" type="text" style="font-family: sans-serif;" required="required"><br>
 				</div>
 				説明: (改行は半角スペースに置き換え)
 				<div class="sp">
-					<textarea id="desc" rows="5" cols="40"></textarea><br>
+					<textarea id="desc" rows="5" cols="40" style="font-size: 80%;font-family: sans-serif;"></textarea><br>
 				</div>
 				<input type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value)"><br>
-				<h2>変換結果</h2>
+				<h2>結果</h2>
 				<div class="sp">
 					<textarea id="result" rows="5" cols="40"></textarea><br>
 					<input type="button" value="コピー" id="copybtn" onclick="copynew()"><br>

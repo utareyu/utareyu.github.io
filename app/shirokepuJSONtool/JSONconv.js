@@ -2,11 +2,6 @@ function runConv(date,data,desc=null){
 	if(date=="" || data==""){
 		return;
 	} else {
-		// const shiro= fetch('https://raw.githubusercontent.com/McbeEringi/shirokepu/main/main.json'); 
-		// console.log(shiro);
-
-		// no = Math.max.apply(null,shiro.map(function(o){return o.speed;}))-1
-
 		let memberE = document.getElementsByName('member');
 		let tagE = document.getElementsByName('tag');
 		let member = 0;
