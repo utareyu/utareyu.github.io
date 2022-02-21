@@ -60,22 +60,22 @@
 				<div class="sp">
 					<textarea id="desc" rows="5" cols="40" style="font-size: 80%;font-family: sans-serif;"></textarea><br>
 				</div>
-				<input type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value)"><br>
+				<input id="convbtn" type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value)"><br>
 				<h2>結果</h2>
 				<div class="sp">
 					<textarea id="result" rows="5" cols="40"></textarea><br>
-					<input type="button" value="コピー" id="copybtn" onclick="copynew()"><br>
+					<input id="copybtn" type="button" value="コピーして編集ページに移動" onclick="copynew()"><br>
 				</div>
 			</div>
 		</div>
 		<section>
-			<code>コンマと波括弧忘れずに.notice</code>
+			<code>入力例</code>
 			<pre class="prettyprint linenums lang-json" style="margin:1em 0; width: 90%;">
 //...
 	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX"}, //desc(説明)はなくてもよい
 	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"},
 	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"}  //最終行
-],
+],  //←←←角括弧消しがち
 //...
 </pre>
 		</section>

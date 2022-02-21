@@ -1,7 +1,9 @@
 function runConv(date,data,desc=null){
 	if(date=="" || data==""){
+		convbtn.value="入力が必要な項目があるよ"
 		return;
 	} else {
+		convbtn.value="変換したよ"
 		let memberE = document.getElementsByName('member');
 		let tagE = document.getElementsByName('tag');
 		let member = 0;
@@ -23,7 +25,7 @@ function runConv(date,data,desc=null){
 		date=date.replace(/-/g,"");
 		date=date.slice(2);
 		desc=desc.replace(/\n/g," ");
-		newWord=`{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
+		newWord=`,\n\t\t{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
 		if(desc){
 			newWord+=`, "desc":"${desc}"}`
 		} else {
@@ -33,16 +35,21 @@ function runConv(date,data,desc=null){
 		console.log(newWord);
 
 		result.value = newWord;
-		copybtn.value="コピー";
+		copybtn.value="コピーして編集ページに移動";
 	}
 }
 
 function copynew(){
-	navigator.clipboard.writeText(result.value)
-			.then(() => {
-				copybtn.value="コピーしたよ";
-	})
-			.catch(err => {
-				copybtn.value="なんでかコピーできないよ";
-	})
+	if(result.value!=""){
+		navigator.clipboard.writeText(result.value)
+				.then(() => {
+					copybtn.value="コピーしたよ";
+					location.href='https://github.com/McbeEringi/shirokepu/edit/main/main.json#new_blob';
+		})
+				.catch(err => {
+					copybtn.value="なんでかコピーできないよ";
+		})
+	}else{
+		copybtn.value="結果が空欄だよ";
+	}
 }
