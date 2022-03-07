@@ -33,7 +33,7 @@
 			<h2>入力欄</h2>
 			<div>
 				番号: 
-				<div class="sp">各々最終行の値から+1</div>
+				<div class="sp">各々先頭行の値から+1</div>
 				発言者: 
 				<div class="sp">
 					<input type="radio" name="member" required="required" value="0"> うた<br>
@@ -47,10 +47,10 @@
 				</div>
 				タグ:
 				<div class="sp">
-					<input type="radio" name="tag" required="required" value="0"> 誤字<br>
-					<input type="radio" name="tag" required="required" value="1"> おつうわ<br>
-					<input type="radio" name="tag" required="required" value="2"> チャット<br>
-					<input type="radio" name="tag" required="required" value="3"> ツイート<br>
+					<input type="checkbox" name="tag" required="required" value="0"> 誤字<br>
+					<input type="checkbox" name="tag" required="required" value="1"> おつうわ<br>
+					<input type="checkbox" name="tag" required="required" value="2"> チャット<br>
+					<input type="checkbox" name="tag" required="required" value="3"> ツイート<br>
 				</div>
 				発言内容: 
 				<div class="sp">
@@ -71,11 +71,10 @@
 		<section>
 			<code>入力例</code>
 			<pre class="prettyprint linenums lang-json" style="margin:1em 0; width: 90%;">
-//...
-	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX"}, //desc(説明)はなくてもよい
+"data":[ //←ここにカーソル合わせて貼り付け
+	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"}, //先頭行
 	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"},
-	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"}  //最終行
-],  //←←←角括弧消しがち
+	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX"}, //desc(説明)はなくてもよい
 //...
 </pre>
 		</section>

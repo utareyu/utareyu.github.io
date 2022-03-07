@@ -1,39 +1,38 @@
 function runConv(date,data,desc=null){
-	if(date=="" || data==""){
+	let memberE = document.getElementsByName('member');
+	let tagE = document.getElementsByName('tag');
+	let member = 0;
+	let tag="";
+	let newWord ="";
+
+	for (let i = 0; i < 4; i++){
+			if (memberE.item(i).checked){
+					member = memberE.item(i).value;
+			}
+	}
+
+	for (let i = 0; i < 4; i++){
+			if (tagE.item(i).checked){
+				if(tag)tag+=",";
+					tag += tagE.item(i).value;
+			}
+	}
+	if(date=="" || data=="" || tag==""){
 		convbtn.value="入力が必要な項目があるよ"
 		return;
 	} else {
-		convbtn.value="変換したよ"
-		let memberE = document.getElementsByName('member');
-		let tagE = document.getElementsByName('tag');
-		let member = 0;
-		let tag = 0;
-		let newWord ="";
-
-		for (let i = 0; i < 4; i++){
-				if (memberE.item(i).checked){
-						member = memberE.item(i).value;
-				}
-		}
-
-		for (let i = 0; i < 4; i++){
-				if (tagE.item(i).checked){
-						tag = tagE.item(i).value;
-				}
-		}
-
-		date=date.replace(/-/g,"");
-		date=date.slice(2);
+		date=date.replace(/-/g,"").slice(2);
 		desc=desc.replace(/\n/g," ");
-		newWord=`,\n\t\t{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
+		newWord=`\n\t\t{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
 		if(desc){
-			newWord+=`, "desc":"${desc}"}`
+			newWord+=`, "desc":"${desc}"},`
 		} else {
-			newWord+=`}`
+			newWord+=`},`
 		}
-
+		
 		console.log(newWord);
 
+		convbtn.value="変換したよ"
 		result.value = newWord;
 		copybtn.value="コピーして編集ページに移動";
 	}
