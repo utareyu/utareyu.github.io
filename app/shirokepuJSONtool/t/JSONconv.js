@@ -26,19 +26,18 @@ function runConv(date,data,desc=null,img=null){
 		desc=desc.replace(/\n/g,"<br>");
 		newWord=`\n\t\t{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
 		if(desc){
-			newWord+=`, "desc":"${desc}"},`
-		} else {
-			newWord+=`},`
+			newWord+=`, "desc":"${desc}"`
 		}
 		if(img){
-			
+			console.log(img);
 		}
+		newWord+=`},`
 		/*
 		有効なデータが入っているときに
 			imgのファイル名取得
 			
 		*/
-		//<img src=\"img/photos/Screenshot_20210913-235626.png\" width=200>
+		//<img src=\"img/photos/imgname\" width=200>
 		
 		console.log(newWord);
 
@@ -67,6 +66,7 @@ function previewImage(obj){
 	var fileReader = new FileReader();
 	fileReader.onload = (function() {
 		document.getElementById('preview').src = fileReader.result;
+		console.log(fileReader.result);
 	});
 	fileReader.readAsDataURL(obj.files[0]);
 }
