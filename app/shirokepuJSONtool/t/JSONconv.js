@@ -25,6 +25,10 @@ function runConv(date,data,desc=null,img=null){
 
 	if(date=="" || data=="" || tag==""){
 		convbtn.value="入力が必要な項目があるよ"
+		for(let i=0;i<c;i++){
+			convbtn.value+='!';
+		}
+		c++;
 		return;
 	} else {
 		date=date.replace(/-/g,"").slice(2);
@@ -32,23 +36,22 @@ function runConv(date,data,desc=null,img=null){
 		newWord=`\n\t\t{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}`;
 		if(desc){
 			newWord+=`", "desc":"${desc}`
+			if(imgc){
+				newWord+=` <img src=\"img/photos/ファイル名\" width=200>`
+			}
+			newWord+=`"},`
 		}
-		if(imgc){
-			newWord+=` <img src=\"img/photos/ファイル名\" width=200>`
-		}
-		newWord+=`"},`
 		
 		console.log(newWord);
 
 		convbtn.value="変換したよ";
-		for(let i=0;i<c;i++){
-			convbtn.value+='!';
-			console.log(c);
-		}
 		result.value = newWord;
 		copybtn.value="コピーして編集ページに移動";
-		c++;
 	}
+	for(let i=0;i<c;i++){
+		convbtn.value+='!';
+	}
+	c++;
 }
 
 function copynew(){
