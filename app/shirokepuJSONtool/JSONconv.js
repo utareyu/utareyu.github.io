@@ -1,9 +1,14 @@
-function runConv(date,data,desc=null){
+// todo 最大数
+
+let c=0;
+let imgc = false;
+
+function runConv(date,data,desc=null,img=null){
 	let memberE = document.getElementsByName('member');
 	let tagE = document.getElementsByName('tag');
 	let member = 0;
-	let tag="";
-	let newWord ="";
+	let tag = "";
+	let newWord = "";
 
 	for (let i = 0; i < 4; i++){
 			if (memberE.item(i).checked){
@@ -17,24 +22,32 @@ function runConv(date,data,desc=null){
 					tag += tagE.item(i).value;
 			}
 	}
+
 	if(date=="" || data=="" || tag==""){
 		convbtn.value="入力が必要な項目があるよ"
 		return;
 	} else {
 		date=date.replace(/-/g,"").slice(2);
-		desc=desc.replace(/\n/g," ");
-		newWord=`\n\t\t{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
+		desc=desc.replace(/\n/g,"<br>");
+		newWord=`\n\t\t{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}`;
 		if(desc){
-			newWord+=`, "desc":"${desc}"},`
-		} else {
-			newWord+=`},`
+			newWord+=`", "desc":"${desc}`
 		}
+		if(imgc){
+			newWord+=` <img src=\"img/photos/ファイル名\" width=200>`
+		}
+		newWord+=`"},`
 		
 		console.log(newWord);
 
-		convbtn.value="変換したよ"
+		convbtn.value="変換したよ";
+		for(let i=0;i<c;i++){
+			convbtn.value+='!';
+			console.log(c);
+		}
 		result.value = newWord;
 		copybtn.value="コピーして編集ページに移動";
+		c++;
 	}
 }
 
@@ -48,7 +61,22 @@ function copynew(){
 				.catch(err => {
 					copybtn.value="なんでかコピーできないよ";
 		})
-	}else{
+	} else {
 		copybtn.value="結果が空欄だよ";
 	}
+}
+
+function previewImage(obj){
+	var fileReader = new FileReader();
+	fileReader.onload = (function() {
+		document.getElementById('preview').src = fileReader.result;
+		// console.log(fileReader.result);
+	});
+	fileReader.readAsDataURL(obj.files[0]);
+	imgc=true;
+}
+
+function imgReset(){
+	document.getElementById("preview").src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+	imgc=false;
 }

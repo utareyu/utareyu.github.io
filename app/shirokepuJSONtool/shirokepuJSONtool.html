@@ -11,7 +11,7 @@
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
 	<script src="JSONconv.js"></script>
-	<title>発言まとめJSON入力補助</title>
+	<title>test</title>
 </head>
 <style>
 	.sp{
@@ -56,11 +56,19 @@
 				<div class="sp">
 					<input id="data" type="text" style="font-family: sans-serif;" required="required"><br>
 				</div>
-				説明: (改行は半角スペースに置き換え)
+				説明:
 				<div class="sp">
 					<textarea id="desc" rows="5" cols="40" style="font-size: 80%;font-family: sans-serif;"></textarea><br>
 				</div>
-				<input id="convbtn" type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value)"><br>
+				画像: 
+				<div class="sp">
+					<input id="img" type="file" accept='image/*' onchange="previewImage(this);">&nbsp;
+					<input type="button" value="リセット" onclick="imgReset()">
+					<p>
+						<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+					</p>
+				</div>
+				<input id="convbtn" type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value, img.accept)"><br>
 				<h2>結果</h2>
 				<div class="sp">
 					<textarea id="result" rows="5" cols="40"></textarea><br>
