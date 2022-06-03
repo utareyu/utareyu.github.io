@@ -11,7 +11,7 @@
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
 	<script src="JSONconv.js"></script>
-	<title>test</title>
+	<title>発言まとめJSON入力補助</title>
 </head>
 <style>
 	.sp{
@@ -64,13 +64,16 @@
 				</div>
 				画像: 
 				<div class="sp">
-					<input id="img" type="file" accept='image/*' onchange="previewImage(this);">
+					<input id="img" type="file" accept='image/*' onchange="previewImage(this);">&nbsp;
+					<input type="button" value="やっぱりやめる" onclick="imgReset()">
 					<p>
 						<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
 					</p>
 				</div>
 				<input id="convbtn" type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value, img.accept)"><br>
-				<h2>結果</h2>
+			</div>
+			<h2>結果</h2>
+			<div>
 				<div class="sp">
 					<textarea id="result" rows="5" cols="40"></textarea><br>
 					<input id="copybtn" type="button" value="コピーして編集ページに移動" onclick="copynew()"><br>
