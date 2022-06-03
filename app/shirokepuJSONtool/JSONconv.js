@@ -29,7 +29,7 @@ function runConv(date,data,desc=null){
 		return;
 	} else {
 		date=date.replace(/-/g,"").slice(2);
-		desc=desc.replace(/\n/g," ");
+		desc=desc.replace(/\n/g,"<br>");
 		newWord=`\n\t\t{"no":${no}, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
 		if(desc){
 			newWord+=`, "desc":"${desc}"},`
