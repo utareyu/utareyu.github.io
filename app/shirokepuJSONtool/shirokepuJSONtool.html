@@ -33,7 +33,9 @@
 			<h2>入力欄</h2>
 			<div>
 				番号: 
-				<div class="sp">各々先頭行の値から+1</div>
+				<div id="max" class="sp">
+					<div>document.getElementById("max").textContent=(Math.max(...x["data"].map((p) => p.no))+1)</div>
+				</div>
 				発言者: 
 				<div class="sp">
 					<label><input type="radio" name="member" required="required" value="0"> うた</label><br>

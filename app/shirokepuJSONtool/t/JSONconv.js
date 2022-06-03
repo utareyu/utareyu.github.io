@@ -1,9 +1,16 @@
+fetch('https://mcbeeringi.github.io/shirokepu/main.json')
+	.then(response => response.json())
+	.then(function(x){
+		document.getElementById("max").textContent=(Math.max(...x["data"].map((p) => p.no))+1);
+	})
+
 function runConv(date,data,desc=null,img=null){
 	let memberE = document.getElementsByName('member');
 	let tagE = document.getElementsByName('tag');
 	let member = 0;
 	let tag="";
 	let newWord ="";
+	let no = document.getElementById("max").textContent
 
 	for (let i = 0; i < 4; i++){
 			if (memberE.item(i).checked){
@@ -17,7 +24,6 @@ function runConv(date,data,desc=null,img=null){
 					tag += tagE.item(i).value;
 			}
 	}
-
 	if(date=="" || data=="" || tag==""){
 		convbtn.value="入力が必要な項目があるよ"
 		return;

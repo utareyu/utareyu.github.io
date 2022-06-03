@@ -1,9 +1,16 @@
+fetch('https://mcbeeringi.github.io/shirokepu/main.json')
+	.then(response => response.json())
+	.then(function(x){
+		document.getElementById("max").textContent=(Math.max(...x["data"].map((p) => p.no))+1);
+	})
+
 function runConv(date,data,desc=null){
 	let memberE = document.getElementsByName('member');
 	let tagE = document.getElementsByName('tag');
 	let member = 0;
 	let tag="";
 	let newWord ="";
+	let no = document.getElementById("max").textContent
 
 	for (let i = 0; i < 4; i++){
 			if (memberE.item(i).checked){
@@ -23,7 +30,7 @@ function runConv(date,data,desc=null){
 	} else {
 		date=date.replace(/-/g,"").slice(2);
 		desc=desc.replace(/\n/g," ");
-		newWord=`\n\t\t{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
+		newWord=`\n\t\t{"no":${no}, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
 		if(desc){
 			newWord+=`, "desc":"${desc}"},`
 		} else {
