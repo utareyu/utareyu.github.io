@@ -1,3 +1,8 @@
+// ■■■■■ ■■■■■  ■■■  ■■■■■
+//   ■   ■     ■       ■
+//   ■   ■■■■■  ■■■    ■
+//   ■   ■         ■   ■
+//   ■   ■■■■■  ■■■    ■
 fetch('https://mcbeeringi.github.io/shirokepu/main.json')
 	.then(response => response.json())
 	.then(function(x){

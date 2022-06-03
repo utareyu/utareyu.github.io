@@ -1,0 +1,105 @@
+<!--
+ ■■■■■ ■■■■■  ■■■  ■■■■■
+   ■   ■     ■       ■
+   ■   ■■■■■  ■■■    ■
+   ■   ■         ■   ■
+   ■   ■■■■■  ■■■    ■
+-->
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://utareyu.github.io/themeColor.js"></script>
+	<link href="https://utareyu.github.io/css/main.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
+	<script src="test.js"></script>
+	<title>test</title>
+</head>
+<style>
+	.sp{
+		margin: 0 0 1em 3em;
+	}
+	input:invalid {
+  border: solid 1px red;
+	}
+</style>
+
+<body>
+	<p>TEST</p>
+	<header>
+		<div class="container">
+			<h1>発言まとめJSON入力補助ツール</h1>
+		</div>
+	</header>
+	<main>
+		<div style="line-height: 1.5em;">
+			<h2>入力欄</h2>
+			<div>
+				番号: 
+				<div id="max" class="sp">
+					<div>document.getElementById("max").textContent=(Math.max(...x["data"].map((p) => p.no))+1)</div>
+				</div>
+				発言者: 
+				<div class="sp">
+					<label><input type="radio" name="member" required="required" value="0"> うた</label><br>
+					<label><input type="radio" name="member" required="required" value="1"> えりんぎ</label><br>
+					<label><input type="radio" name="member" required="required" value="2"> しろる</label><br>
+					<label><input type="radio" name="member" required="required" value="3"> 紅茶</label><br>
+				</div>
+				日付:
+				<div  class="sp">
+					<input id="date" type="date" required="required"><br>
+				</div>
+				タグ:
+				<div class="sp">
+					<label><input type="checkbox" name="tag" required="required" value="0"> 誤字</label><br>
+					<label><input type="checkbox" name="tag" required="required" value="1"> おつうわ</label><br>
+					<label><input type="checkbox" name="tag" required="required" value="2"> チャット</label><br>
+					<label><input type="checkbox" name="tag" required="required" value="3"> ツイート</label><br>
+				</div>
+				発言内容: 
+				<div class="sp">
+					<input id="data" type="text" style="font-family: sans-serif;" required="required"><br>
+				</div>
+				説明:(HTML要素使用可能)
+				<div class="sp">
+					<textarea id="desc" rows="5" cols="40" style="font-size: 80%;font-family: sans-serif;"></textarea><br>
+				</div>
+				画像: 
+				<div class="sp">
+					<input id="img" type="file" accept='image/*' onchange="previewImage(this);">
+					<p>
+						<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+					</p>
+				</div>
+				<input id="convbtn" type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value, img.accept)"><br>
+				<h2>結果</h2>
+				<div class="sp">
+					<textarea id="result" rows="5" cols="40"></textarea><br>
+					<input id="copybtn" type="button" value="コピーして編集ページに移動" onclick="copynew()"><br>
+				</div>
+			</div>
+		</div>
+		<section>
+			<code>入力例</code>
+			<pre class="prettyprint linenums lang-json" style="margin:1em 0; width: 90%;">
+"data":[ //←ここにカーソル合わせて貼り付け
+	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"}, //先頭行
+	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"},
+	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX"}, //desc(説明)はなくてもよい
+//...
+</pre>
+		</section>
+	</main>
+	<p style="text-align:center"><a href="https://utareyu.github.io/index.html">home</a></p>
+	<footer>
+		<p>(c)2021~ utareyu</p>
+	</footer>
+</body>
+
+</html>
