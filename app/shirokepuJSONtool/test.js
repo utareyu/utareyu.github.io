@@ -29,21 +29,23 @@ function runConv(date,data,desc=null,img=null){
 					tag += tagE.item(i).value;
 			}
 	}
-	
+
 	if(date=="" || data=="" || tag==""){
 		convbtn.value="入力が必要な項目があるよ"
 		return;
 	} else {
 		date=date.replace(/-/g,"").slice(2);
-		desc=desc.replace(/\n/g,"<br>").replace(/"/g,"\"");
-		newWord=`\n\t\t{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
-		if(desc){
-			newWord+=`, "desc":"${desc}"`
+		data=data.replace(/"/g,"\\\"");
+		desc=desc.replace(/\n/g,"<br>").replace(/"/g,"\\\"");
+		console.log(data);
+		newWord=`\n\t\t{"no":${no}, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}`;
+		if(desc || img){
+			newWord+=`, "desc":"${desc}`
+			if(img){
+				newWord+=`<img src=\\\"img/photos/${document.getElementById("img").files[0].name}\\\" width=200>`
+			}
 		}
-		if(img){
-			console.log(img);
-		}
-		newWord+=`},`
+		newWord+=`"},`
 		/*
 		有効なデータが入っているときに
 			imgのファイル名取得
@@ -78,7 +80,7 @@ function previewImage(obj){
 	var fileReader = new FileReader();
 	fileReader.onload = (function() {
 		document.getElementById('preview').src = fileReader.result;
-		console.log(fileReader.result);
+		console.log(document.getElementById("img").files[0].name);
 	});
 	fileReader.readAsDataURL(obj.files[0]);
 }

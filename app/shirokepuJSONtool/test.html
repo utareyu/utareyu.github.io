@@ -72,7 +72,8 @@
 				</div>
 				画像: 
 				<div class="sp">
-					<input id="img" type="file" accept='image/*' onchange="previewImage(this);">
+					<input id="img" type="file" accept='image/*' onchange="previewImage(this);" value="aa">
+					<input type="button" value="リセット" onclick="document.getElementById('img').value = '' ">
 					<p>
 						<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
 					</p>
