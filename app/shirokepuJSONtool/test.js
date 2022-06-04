@@ -84,8 +84,15 @@ function copynew(){
 function previewImage(obj){
 	var fileReader = new FileReader();
 	fileReader.onload = (function() {
+		// window.innerWidth>=680 ? preview.removeAttribute("width") : preview.width("80%") ;
 		preview.src = fileReader.result;
 		console.log(img.files[0].name);
 	});
 	fileReader.readAsDataURL(obj.files[0]);
+}
+
+function previewreset(){
+	img.value =null;
+	preview.src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+	preview.width=1;
 }
