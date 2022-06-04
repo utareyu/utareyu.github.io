@@ -41,17 +41,12 @@ function runConv(date,data,desc=null,img=null){
 		newWord=`\n\t\t{"no":${no}, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}`;
 		if(desc || img){
 			newWord+=`, "desc":"${desc}`
-			if(img){
-				newWord+=`<img src=\\\"img/photos/${document.getElementById("img").files[0].name}\\\" width=200>`
+			console.log(img);
+			if(img!=null){
+				newWord+=`<br><img src=\\\"img/photos/${document.getElementById("img").files[0].name}\\\" width=200>`
 			}
 		}
 		newWord+=`"},`
-		/*
-		有効なデータが入っているときに
-			imgのファイル名取得
-			
-		*/
-		//<img src=\"img/photos/imgname\" width=200>
 		
 		console.log(newWord);
 

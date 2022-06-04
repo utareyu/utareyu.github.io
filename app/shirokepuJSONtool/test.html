@@ -18,7 +18,7 @@
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 	<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
 	<script src="test.js"></script>
-	<title>test</title>
+	<title>発言まとめJSON入力補助</title>
 </head>
 <style>
 	.sp{
@@ -30,7 +30,7 @@
 </style>
 
 <body>
-	<p>TEST</p>
+	<p>TEST DOM使え～</p>
 	<header>
 		<div class="container">
 			<h1>発言まとめJSON入力補助ツール</h1>
@@ -73,12 +73,12 @@
 				画像: 
 				<div class="sp">
 					<input id="img" type="file" accept='image/*' onchange="previewImage(this);" value="aa">
-					<input type="button" value="リセット" onclick="document.getElementById('img').value = '' ">
+					<input type="button" value="リセット" onclick="document.getElementById('img').value =null ;getElementById('preview').src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='">
 					<p>
 						<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
 					</p>
 				</div>
-				<input id="convbtn" type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value, img.accept)"><br>
+				<input id="convbtn" type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value, img.value)"><br>
 				<h2>結果</h2>
 				<div class="sp">
 					<textarea id="result" rows="5" cols="40"></textarea><br>
