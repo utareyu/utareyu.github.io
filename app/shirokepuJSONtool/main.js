@@ -79,8 +79,15 @@ fetch('https://mcbeeringi.github.io/shirokepu/main.json')
 	function previewImage(obj){
 		var fileReader = new FileReader();
 		fileReader.onload = (function() {
+			preview.removeAttribute("width");
 			preview.src = fileReader.result;
 			console.log(img.files[0].name);
 		});
 		fileReader.readAsDataURL(obj.files[0]);
+	}
+	
+	function previewreset(){
+		img.value =null;
+		preview.src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+		preview.setAttribute("width",1);
 	}
