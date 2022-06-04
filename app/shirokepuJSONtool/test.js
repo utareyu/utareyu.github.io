@@ -5,55 +5,65 @@
 //   ■   ■■■■■  ■■■    ■
 fetch('https://mcbeeringi.github.io/shirokepu/main.json')
 	.then(response => response.json())
-	.then(function(x){
-		document.getElementById("max").textContent=(Math.max(...x["data"].map((p) => p.no))+1);
+	.then((x)=>{
+		max.textContent=(Math.max(...x["data"].map((p) => p.no))+1);
 	})
 
-function runConv(date,data,desc=null,img=null){
-	let memberE = document.getElementsByName('member');
-	let tagE = document.getElementsByName('tag');
-	let member = 0;
-	let tag="";
-	let newWord ="";
-	let no = document.getElementById("max").textContent
+function run(){
+	const no = max.textContent;
+	let member = document.getElementsByName('member');
+	let date = document.getElementById("date").value.replace(/-/g,"").slice(2);
+	let tag = document.getElementsByName('tag');
+	let data = document.getElementById("data").value.replace(/"/g,"\\\"");
+	let desc = document.getElementById("desc").value.replace(/\n/g,"<br>").replace(/"/g,"\\\"");
+	let wk="";
 
-	for (let i = 0; i < 4; i++){
-			if (memberE.item(i).checked){
-					member = memberE.item(i).value;
+	console.log(`%c---- ${no} ----`,'color: yellow;font-size: 2em;');
+	warn.textContent=smember.style=sdate.style=stag.style=sdata.style="";
+
+	//member
+	for (let i in Object.keys(member)){
+			if (member[i].checked){
+					wk = member[i].value;
 			}
 	}
+	// console.log(wk);
+	member = wk;
+	wk=[];
 
-	for (let i = 0; i < 4; i++){
-			if (tagE.item(i).checked){
-				if(tag)tag+=",";
-					tag += tagE.item(i).value;
+	//tag
+	for (let i in Object.keys(tag)){
+			if (tag.item(i).checked){
+				wk.push(tag.item(i).value);
 			}
 	}
+	// console.log(wk);
+	tag=wk.concat();
 
-	if(date=="" || data=="" || tag==""){
-		convbtn.value="入力が必要な項目があるよ"
+	if(member=="" || date=="" || tag=="" || data==""){
+		convbtn.value="入力が必要な項目があるよ";
+		console.log(`member: ${member}  date: ${date}  tag: ${tag}  data: ${data}`);
+		if(member=="")smember.style="color:red;";
+		if(date=="")sdate.style="color:red;";
+		if(tag=="")stag.style="color:red;";
+		if(data=="")sdata.style="color:red;";
+		console.log("NG");
 		return;
-	} else {
-		date=date.replace(/-/g,"").slice(2);
-		data=data.replace(/"/g,"\\\"");
-		desc=desc.replace(/\n/g,"<br>").replace(/"/g,"\\\"");
-		console.log(data);
-		newWord=`\n\t\t{"no":${no}, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}`;
-		if(desc || img){
-			newWord+=`, "desc":"${desc}`
-			console.log(img);
-			if(img!=null){
-				newWord+=`<br><img src=\\\"img/photos/${document.getElementById("img").files[0].name}\\\" width=200>`
-			}
-		}
-		newWord+=`"},`
-		
-		console.log(newWord);
-
-		convbtn.value="変換したよ"
-		result.value = newWord;
-		copybtn.value="コピーして編集ページに移動";
 	}
+
+	if(img.files.length!=0){
+		if(desc)desc+="<br>";
+		console.log(img.files[0].name);
+		desc+=`<img src=\"img/photos/${img.files[0].name}\" width=200>`
+	}
+	
+	desc!="" ? wk = {no,member,date,tag,data,desc} : wk = {no,member,date,tag,data} ;
+	console.log(wk);
+	console.log("OK");
+
+	convbtn.value="変換したよ"
+	result.value = `\n\t\t${JSON.stringify(wk)}`;
+	copybtn.value="コピーして編集ページに移動";
 }
 
 function copynew(){
@@ -74,8 +84,8 @@ function copynew(){
 function previewImage(obj){
 	var fileReader = new FileReader();
 	fileReader.onload = (function() {
-		document.getElementById('preview').src = fileReader.result;
-		console.log(document.getElementById("img").files[0].name);
+		preview.src = fileReader.result;
+		console.log(img.files[0].name);
 	});
 	fileReader.readAsDataURL(obj.files[0]);
 }

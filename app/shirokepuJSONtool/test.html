@@ -30,7 +30,7 @@
 </style>
 
 <body>
-	<p>TEST DOM使え～</p>
+	<p>TEST</p>
 	<header>
 		<div class="container">
 			<h1>発言まとめJSON入力補助ツール</h1>
@@ -40,37 +40,37 @@
 		<div style="line-height: 1.5em;">
 			<h2>入力欄</h2>
 			<div>
-				番号: 
+				<span>番号:</span>
 				<div id="max" class="sp">
 					<div>document.getElementById("max").textContent=(Math.max(...x["data"].map((p) => p.no))+1)</div>
 				</div>
-				発言者: 
+				<span id="smember">発言者:</span>
 				<div class="sp">
 					<label><input type="radio" name="member" required="required" value="0"> うた</label><br>
 					<label><input type="radio" name="member" required="required" value="1"> えりんぎ</label><br>
 					<label><input type="radio" name="member" required="required" value="2"> しろる</label><br>
 					<label><input type="radio" name="member" required="required" value="3"> 紅茶</label><br>
 				</div>
-				日付:
+				<span id="sdate">日付:</span>
 				<div  class="sp">
 					<input id="date" type="date" required="required"><br>
 				</div>
-				タグ:
+				<span id="stag">タグ:</span>
 				<div class="sp">
 					<label><input type="checkbox" name="tag" required="required" value="0"> 誤字</label><br>
 					<label><input type="checkbox" name="tag" required="required" value="1"> おつうわ</label><br>
 					<label><input type="checkbox" name="tag" required="required" value="2"> チャット</label><br>
 					<label><input type="checkbox" name="tag" required="required" value="3"> ツイート</label><br>
 				</div>
-				発言内容: 
+				<span id="sdata">発言内容:</span>
 				<div class="sp">
 					<input id="data" type="text" style="font-family: sans-serif;" required="required"><br>
 				</div>
-				説明:(HTML要素使用可能)
+				<span>説明:(HTML要素使用可能)</span>
 				<div class="sp">
 					<textarea id="desc" rows="5" cols="40" style="font-size: 80%;font-family: sans-serif;"></textarea><br>
 				</div>
-				画像: 
+				<span>画像:</span>
 				<div class="sp">
 					<input id="img" type="file" accept='image/*' onchange="previewImage(this);" value="aa">
 					<input type="button" value="リセット" onclick="document.getElementById('img').value =null ;getElementById('preview').src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='">
@@ -78,7 +78,8 @@
 						<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
 					</p>
 				</div>
-				<input id="convbtn" type="button" value="変換"  onclick="runConv(date.value, data.value, desc.value, img.value)"><br>
+				<input id="convbtn" type="button" value="変換"  onclick="run()">
+				<span id="warn" style="color: red;"></span>
 				<h2>結果</h2>
 				<div class="sp">
 					<textarea id="result" rows="5" cols="40"></textarea><br>
@@ -88,12 +89,22 @@
 		</div>
 		<section>
 			<code>入力例</code>
-			<pre class="prettyprint linenums lang-json" style="margin:1em 0; width: 90%;">
+			<pre class="prettyprint lang-json" style="margin:1em 0; width: 90%;">
 "data":[ //←ここにカーソル合わせて貼り付け
 	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"}, //先頭行
 	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX", "desc":"XXX"},
 	{"no":nnn, "member":0~3, "date":yymmdd, "tag":[0~3], "data":"XXX"}, //desc(説明)はなくてもよい
 //...
+</pre>
+			<code>使いそうなHTML要素</code>
+			<pre class="prettyprint lang-json" style="margin:1em 0; width: 90%;">
+改行 : &lt;br&gt;
+画像 : &lt;img src="[ファイル名]" width=[幅(200くらい)]&gt;
+段落 : &lt;p&gt;文字&lt;/p&gt;
+<b>太字</b> : &lt;b&gt;文字&lt;/b&gt;
+<strike>取消</strike> : &lt;strike&gt;文字&lt;/strike&gt;
+<i>斜体</i> : &lt;i&gt;文字&lt;/i&gt;
+<u>下線</u> : &lt;u&gt;文字&lt;/u&gt;
 </pre>
 		</section>
 	</main>
