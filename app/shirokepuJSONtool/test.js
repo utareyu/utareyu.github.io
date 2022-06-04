@@ -29,12 +29,13 @@ function runConv(date,data,desc=null,img=null){
 					tag += tagE.item(i).value;
 			}
 	}
+	
 	if(date=="" || data=="" || tag==""){
 		convbtn.value="入力が必要な項目があるよ"
 		return;
 	} else {
 		date=date.replace(/-/g,"").slice(2);
-		desc=desc.replace(/\n/g,"<br>");
+		desc=desc.replace(/\n/g,"<br>").replace(/"/g,"\"");
 		newWord=`\n\t\t{"no":nnn, "member":${member}, "date":${date}, "tag":[${tag}], "data":"${data}"`;
 		if(desc){
 			newWord+=`, "desc":"${desc}"`
