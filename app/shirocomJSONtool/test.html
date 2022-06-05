@@ -8,16 +8,45 @@
 	<link href="https://utareyu.github.io/shirocom/Discord.css" rel="stylesheet">
 	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
 	<script src="test.js" async></script>
-	<title>しろけぷ会話まとめ</title>
+	<title>会話まとめJSON入力補助ツール</title>
 </head>
 <style>
+@media(max-width:649px){
+	.input{
+		font-size: 80%;
+	}
 	.add{
+		font-size: 80%;
+	}
+}
+@media(min-width:650px){
+	.input{
+		font-size: 100%;
+	}
+	.add{
+		font-size:100%;
+	}
+}
+input:invalid {
+	border: solid 1px red;
+}
+.act button{
+	margin: 5px 10px 5px 0;
+	padding: 3px;
+	border-radius: 3px;
+}
+.add{
+	font-family: 'Noto Sans JP',sans-serif;
 	margin: 5px 10px 5px 0;
 	padding: 3px;
 	border: 1px solid #53565a;
 	border-radius: 3px;
 	background-color: #35383e;
 	color:aliceblue;
+}
+.add.btn:hover{
+	border: 1px solid #5562ea;
+	background-color: #3a3f59;
 }
 </style>
 
@@ -27,7 +56,10 @@
 	</header>
 	<hr style="border:1px solid aliceblue;">
 	<header>
-		<input id="title" class="add" type="text" oninput="chgtitle()" style="font-size: 20px;width:fit-content;">
+		<h1>
+			<input id="title" class="add" type="text" required="required" placeholder="タイトル" oninput="fitwidth(this);chgtitle()" style="font-size: 28px;width:6em;">
+			<span style="font-size:50%;font-weight:400;">220327</span>
+		</h1>
 	</header>
 	<section class="container">
 		<nav id="nav">
@@ -35,20 +67,21 @@
 		</nav>
 		<div Style="flex-direction: column;">
 			<main id="main">
-				<div id="p0" class="container post">
+				<div id="p0" name="post" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m2.png"></div>
 					<div class="container content">
-						<input class="add" type="number">
+						<div><input class="add" type="text" required="required" placeholder="発言者" oninput="fitwidth(this)" style="width:5em;"></div>
 						<div class="data">
-							<input type="text">
+							<input class="add" type="text" required="required" placeholder="投稿内容" oninput="fitwidth(this)" style="font-weight: 100;width:14em;">
 						</div>
-						<div class="container">
-							<div id="a00" class="s add">😀 +</div>
+						<div class="container act">
+							<div id="a0_0" name="action0" class="s">💥 +</div>
+							<button id="action0" name="action0" class="add btn s" onclick="addAct(this)">😀 +</button>
 						</div>
 					</div>
 				</div>
-				<div class="container"><div class="s add"> 投稿を追加</div></div>
-				<div id="p1" class="container post">
+				<button id="addp" class="add btn" onclick="addPost(this)">投稿を追加</button>
+				<div id="" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m1.png"></div>
 					<div class="container content">
 						<div class="member">えりんぎ</div>
@@ -58,7 +91,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="p2" class="container post">
+				<div id="" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m2.png"></div>
 					<div class="container content">
 						<div class="member">しろる</div>
@@ -67,7 +100,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="p3" class="container post">
+				<div id="" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m0.png"></div>
 					<div class="container content">
 						<div class="member">うた</div>
@@ -77,7 +110,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="p4" class="container post">
+				<div id="" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m2.png"></div>
 					<div class="container content">
 						<div class="member">しろる</div>
@@ -86,7 +119,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="p5" class="container post">
+				<div id="" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m1.png"></div>
 					<div class="container content">
 						<div class="member">えりんぎ</div>
@@ -95,7 +128,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="p6" class="container post">
+				<div id="" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m2.png"></div>
 					<div class="container content">
 						<div class="member">しろる</div>
@@ -104,7 +137,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="p7" class="container post">
+				<div id="" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m1.png"></div>
 					<div class="container content">
 						<div class="member">えりんぎ</div>
@@ -113,7 +146,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="p8" class="container post">
+				<div id="" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m0.png"></div>
 					<div class="container content">
 						<div class="member">うた</div>
@@ -123,7 +156,7 @@
 						</div>
 					</div>
 				</div>
-				<div id="p9" class="container post">
+				<div id="" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m2.png"></div>
 					<div class="container content">
 						<div class="member">しろる</div>
