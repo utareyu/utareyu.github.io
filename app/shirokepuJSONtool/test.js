@@ -3,18 +3,24 @@
 //   ■   ■■■■■  ■■■    ■
 //   ■   ■         ■   ■
 //   ■   ■■■■■  ■■■    ■
+
+function strIns(str, idx, val) {
+	var res = str.slice(0, idx) + val + str.slice(idx);
+	return res;
+}
+
 fetch('https://mcbeeringi.github.io/shirokepu/main.json')
 	.then(response => response.json())
 	.then((x)=>{
 		max.textContent=(Math.max(...x["data"].map((p) => p.no))+1);
-	})
+})
 
 function run(){
-	const no = max.textContent;
+	const no = parseInt(max.textContent);
 	let member = document.getElementsByName('member');
-	let date = document.getElementById("date").value.replace(/-/g,"").slice(2);
+	const date = parseInt(document.getElementById("date").value.replace(/-/g,"").slice(2));
 	let tag = document.getElementsByName('tag');
-	let data = document.getElementById("data").value.replace(/"/g,"\\\"");
+	const data = document.getElementById("data").value.replace(/"/g,"\\\"");
 	let desc = document.getElementById("desc").value.replace(/\n/g,"<br>").replace(/"/g,"\\\"");
 	let wk="";
 
@@ -28,13 +34,13 @@ function run(){
 			}
 	}
 	// console.log(wk);
-	member = wk;
+	member = parseInt(wk);
 	wk=[];
 
 	//tag
 	for (let i in Object.keys(tag)){
 			if (tag.item(i).checked){
-				wk.push(tag.item(i).value);
+				wk.push(parseInt(tag.item(i).value));
 			}
 	}
 	// console.log(wk);
@@ -59,10 +65,18 @@ function run(){
 	
 	desc!="" ? wk = {no,member,date,tag,data,desc} : wk = {no,member,date,tag,data} ;
 	console.log(wk);
+
+	wk=`\n\t\t${JSON.stringify(wk)}`;
+	wk=strIns(wk,wk.indexOf(`"member"`)," ");
+	wk=strIns(wk,wk.indexOf(`"date"`)," ");
+	wk=strIns(wk,wk.indexOf(`"tag"`)," ");
+	wk=strIns(wk,wk.indexOf(`"data"`)," ");
+	if(wk.indexOf(`"desc"`)>0)wk=strIns(wk,wk.indexOf(`"desc"`)," ");
+	console.log(wk);
 	console.log("OK");
 
 	convbtn.value="変換したよ"
-	result.value = `\n\t\t${JSON.stringify(wk)}`;
+	result.value = wk;
 	copybtn.value="コピーして編集ページに移動";
 }
 
@@ -82,17 +96,20 @@ function copynew(){
 }
 
 function previewImage(obj){
-	var fileReader = new FileReader();
-	fileReader.onload = (function() {
+	var f = new FileReader();
+	f.onload = (function() {
 		preview.removeAttribute("width");
-		preview.src = fileReader.result;
-		console.log(img.files[0].name);
+		preview.src = f.result;
 	});
-	fileReader.readAsDataURL(obj.files[0]);
+	f.readAsDataURL(obj.files[0]);
+	console.log(img.files[0].name+" : "+img.files[0].size);
+	fsize.textContent=img.files[0].size+"byte";
+	img.files[0].size>=614400 ? fsize.style="font-size: 14px;color: orange;" : fsize.style="font-size: 14px;color: aliceblue;";
 }
 
 function previewreset(){
 	img.value =null;
 	preview.src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
 	preview.setAttribute("width",1);
+	fsize.textContent="";
 }

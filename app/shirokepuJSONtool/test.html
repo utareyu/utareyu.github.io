@@ -72,8 +72,8 @@
 				</div>
 				<span>画像:</span>
 				<div class="sp">
-					<input id="img" type="file" accept='image/*' onchange="previewImage(this);" value="aa">
-					<input type="button" value="リセット" onclick="previewreset()">
+					<input id="img" type="file" accept='image/*' onchange="previewImage(this);" value="."><input type="button" value="リセット" onclick="previewreset()">
+					<span id="fsize" style="font-size: 14px;color: aliceblue;"></span>
 					<p>
 						<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
 					</p>
@@ -83,8 +83,13 @@
 				<h2>結果</h2>
 				<div class="sp">
 					<textarea id="result" rows="7" cols="40"></textarea><br>
-					<input id="copybtn" type="button" value="コピーして編集ページに移動" onclick="copynew()"><br>
+					<input id="copybtn" type="button" value="コピーして編集ページに移動" onclick="copynew()">
 				</div>
+				<h2>画像のアップロードについて</h2>
+				<p class="sp">
+					<img src="Screenshot_273.png"><br>ここ押して選択<br>
+					<a href="https://github.com/McbeEringi/shirokepu/tree/main/img/photos">アップロード先</a>
+				</p>
 			</div>
 		</div>
 		<section>
@@ -112,6 +117,7 @@
 	<footer>
 		<p>(c)2021~ utareyu</p>
 	</footer>
+	<script>img.value=fsize.textContent=result.value="";</script>
 </body>
 
 </html>
