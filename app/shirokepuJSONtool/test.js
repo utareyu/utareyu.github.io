@@ -18,7 +18,7 @@ fetch('https://mcbeeringi.github.io/shirokepu/main.json')
 function run(){
 	const no = parseInt(max.textContent);
 	let member = document.getElementsByName('member');
-	const date = parseInt(document.getElementById("date").value.replace(/-/g,"").slice(2));
+	let date = document.getElementById("date").value.replace(/-/g,"").slice(2);
 	let tag = document.getElementsByName('tag');
 	const data = document.getElementById("data").value.replace(/"/g,"\\\"");
 	let desc = document.getElementById("desc").value.replace(/\n/g,"<br>").replace(/"/g,"\\\"");
@@ -34,7 +34,7 @@ function run(){
 			}
 	}
 	// console.log(wk);
-	member = parseInt(wk);
+	member = wk;
 	wk=[];
 
 	//tag
@@ -47,15 +47,18 @@ function run(){
 	tag=wk.concat();
 
 	if(member=="" || date=="" || tag=="" || data==""){
-		convbtn.value="入力が必要な項目があるよ";
 		console.log(`member: ${member}  date: ${date}  tag: ${tag}  data: ${data}`);
+		convbtn.value="入力が必要な項目があるよ";
 		if(member=="")smember.style="color:red;";
-		if(date=="")sdate.style="color:red;";
+		if(date=="" || date==null)sdate.style="color:red;";
 		if(tag=="")stag.style="color:red;";
 		if(data=="")sdata.style="color:red;";
 		console.log("NG");
 		return;
 	}
+
+	member=parseInt(member);
+	date=parseInt(date);
 
 	if(img.files.length!=0){
 		if(desc)desc+="<br>";
