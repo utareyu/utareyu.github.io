@@ -27,11 +27,11 @@
 	</header>
 	<hr style="border:1px solid aliceblue;">
 	<header>
-		<input id="title" class="add" type="text" onchange="titlen.textContent=title.value" style="font-size: 32px;width:30em;"">
+		<input id="title" class="add" type="text" oninput="chgtitle()" style="font-size: 20px;width:fit-content;">
 	</header>
 	<section class="container">
 		<nav id="nav">
-			<p id="titlen">hoge.value</p>
+			<p id="titlen"></p>
 		</nav>
 		<div Style="flex-direction: column;">
 			<main id="main">

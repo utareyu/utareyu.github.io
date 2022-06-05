@@ -50,7 +50,7 @@ function run(){
 		console.log(`member: ${member}  date: ${date}  tag: ${tag}  data: ${data}`);
 		convbtn.value="入力が必要な項目があるよ";
 		if(member=="")smember.style="color:red;";
-		if(date=="" || date==null)sdate.style="color:red;";
+		if(date=="")sdate.style="color:red;";
 		if(tag=="")stag.style="color:red;";
 		if(data=="")sdata.style="color:red;";
 		console.log("NG");
@@ -107,7 +107,7 @@ function previewImage(obj){
 	f.readAsDataURL(obj.files[0]);
 	console.log(img.files[0].name+" : "+img.files[0].size);
 	fsize.textContent=img.files[0].size+"byte";
-	img.files[0].size>=614400 ? fsize.style="font-size: 14px;color: orange;" : fsize.style="font-size: 14px;color: aliceblue;";
+	img.files[0].size>=614400 ? fsize.style.color="orange;" : fsize.style.color="aliceblue;";
 }
 
 function previewreset(){
