@@ -10,46 +10,6 @@
 	<script src="test.js" async></script>
 	<title>会話まとめJSON入力補助ツール</title>
 </head>
-<style>
-@media(max-width:649px){
-	.input{
-		font-size: 80%;
-	}
-	.add{
-		font-size: 80%;
-	}
-}
-@media(min-width:650px){
-	.input{
-		font-size: 100%;
-	}
-	.add{
-		font-size:100%;
-	}
-}
-input:invalid {
-	border: solid 1px red;
-}
-.act button{
-	margin: 5px 10px 5px 0;
-	padding: 3px;
-	border-radius: 3px;
-}
-.add{
-	font-family: 'Noto Sans JP',sans-serif;
-	margin: 5px 10px 5px 0;
-	padding: 3px;
-	border: 1px solid #53565a;
-	border-radius: 3px;
-	background-color: #35383e;
-	color:aliceblue;
-}
-.add.btn:hover{
-	border: 1px solid #5562ea;
-	background-color: #3a3f59;
-}
-</style>
-
 <body id="body">
 	<header>
 		<h1>会話まとめJSON入力補助ツール</h1>
@@ -58,7 +18,7 @@ input:invalid {
 	<header>
 		<h1>
 			<input id="title" class="add" type="text" required="required" placeholder="タイトル" oninput="fitwidth(this);chgtitle()" style="font-size: 28px;width:6em;">
-			<span style="font-size:50%;font-weight:400;">220327</span>
+			<input class="add" type="date" required="reqired" style="font-size:50%;font-weight:400;">
 		</h1>
 	</header>
 	<section class="container">
