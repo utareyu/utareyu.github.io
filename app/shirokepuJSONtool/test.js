@@ -9,6 +9,12 @@ function strIns(str, idx, val) {
 	return res;
 }
 
+function chgtitle(){
+	titlen.textContent=title.value;
+	console.log(title.getAttribute('width'));
+	// title.getAttribute('width').value=`${title.value.length+2}em`;
+}
+
 fetch('https://mcbeeringi.github.io/shirokepu/main.json')
 	.then(response => response.json())
 	.then((x)=>{
