@@ -44,7 +44,7 @@ function run(){
 		console.log(`member: ${member}  date: ${date}  tag: ${tag}  data: ${data}`);
 		convbtn.value="入力が必要な項目があるよ";
 		if(member=="")smember.style="color:red;";
-		if(date=="" || date==null)sdate.style="color:red;";
+		if(date=="")sdate.style="color:red;";
 		if(tag=="")stag.style="color:red;";
 		if(data=="")sdata.style="color:red;";
 		console.log("NG");

@@ -1,5 +1,9 @@
+// ■ ■ ■ ■ ■  ■ ■ ■ ■ ■     ■ ■ ■    ■ ■ ■ ■ ■ 
+//     ■      ■           ■              ■
+//     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
+//     ■      ■                   ■      ■
+//     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
 let post = document.getElementsByName("post");
-
 let dest;
 let act =[[],[]];
 let wk;

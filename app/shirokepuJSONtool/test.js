@@ -1,18 +1,11 @@
-// ■■■■■ ■■■■■  ■■■  ■■■■■
-//   ■   ■     ■       ■
-//   ■   ■■■■■  ■■■    ■
-//   ■   ■         ■   ■
-//   ■   ■■■■■  ■■■    ■
-
+// ■ ■ ■ ■ ■  ■ ■ ■ ■ ■     ■ ■ ■    ■ ■ ■ ■ ■ 
+//     ■      ■           ■              ■
+//     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
+//     ■      ■                   ■      ■
+//     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
 function strIns(str, idx, val) {
 	var res = str.slice(0, idx) + val + str.slice(idx);
 	return res;
-}
-
-function chgtitle(){
-	titlen.textContent=title.value;
-	console.log(title.getAttribute('width'));
-	// title.getAttribute('width').value=`${title.value.length+2}em`;
 }
 
 fetch('https://mcbeeringi.github.io/shirokepu/main.json')
