@@ -12,8 +12,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <link href="https://utareyu.github.io/shirocom/Discord.css" rel="stylesheet"> -->
-	<link href="../Discord.css" rel="stylesheet">
+	<link href="https://utareyu.github.io/shirocom/Discord.css" rel="stylesheet">
+	<!-- <link href="../Discord.css" rel="stylesheet"> -->
 	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
 	<script src="test.js" async></script>
 	<title>会話まとめJSON入力補助ツール</title>
@@ -26,11 +26,10 @@
 	<header>
 		<h1>
 			<input id="title" class="add" type="text" required="required" placeholder="タイトル" oninput="fitwidth(this);chgtitle()" style="font-size: 28px;width:6em;">
-			<input class="add" type="date" required="reqired" style="font-size:50%;font-weight:400;">
+			<input id="date" class="add" type="date" required="reqired" style="font-size:50%;font-weight:400; ">
 		</h1>
-	</header>
+	</header>	
 
-	
 	<section class="container">
 		<nav id="nav">
 			<p id="titlen"></p>
@@ -40,7 +39,14 @@
 				<div id="p0" name="post" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m2.png"></div>
 					<div class="container content">
-						<div><input class="add" type="text" required="required" placeholder="発言者" oninput="fitwidth(this)" style="width:5em;"></div>
+						<div>
+							<select class="add" required style="width:6em;" oninput="chgIco(this)">
+								<option>うた</option>
+								<option>えりんぎ</option>
+								<option>しろる</option>
+								<option>紅茶</option>
+							</select>
+						</div>
 						<div class="data">
 							<input class="add" type="text" required="required" placeholder="投稿内容" oninput="fitwidth(this)" style="font-weight: 100;width:14em;">
 						</div>
@@ -49,7 +55,9 @@
 						</div>
 					</div>
 				</div>
-				<button id="addp" class="add btn" onclick="addPost(this)">投稿を追加</button>
+				<button id="addp" class="add btn" onclick="addPost()">投稿を追加</button>
+
+
 				<div id="" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m1.png"></div>
 					<div class="container content">
