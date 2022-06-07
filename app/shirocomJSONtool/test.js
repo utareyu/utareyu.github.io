@@ -41,11 +41,26 @@ function addPost(e){
 }
 
 function addAct(e){
-	// console.log("--add action--");
-	console.log(`---add action a${(e.id).slice(e.id.length-1)}_${document.getElementsByName(`action${(e.id).slice(e.id.length-1)}`).length-1}---`);
+	console.log(e);
+	const el=(e.id).slice(e.id.length-1);
+	const en=document.getElementsByName(e.name).length-1;
+	console.log(`---add action a${el}_${document.getElementsByName(`action${el}`).length-1}---`);
 
-	wk=`<div id="a${(e.id).slice(e.id.length-1)}_${document.getElementsByName(e.name).length-1}" name="${e.id}" class="s">💥 +</div>`;
+	wk=`<div id="a${el}_${en}" name="${e.id}" class="s" onclick="addcnt(this)"><input type="text" class="add" required="requiard" style="height:1em; width:1em;"> 
+	<span id="c${el}_${en}"></span>x</div><span>X</span>`;
 	dest=document.getElementById(e.id);
 	dest.insertAdjacentHTML("beforebegin",wk);
+	dest=document.getElementById(`c${el}_${en}`);
+	dest.textContent=0;
 	console.log(dest);
+
+
+}
+
+function addcnt(e){
+	const el=(e.id).slice(1);
+	dest=document.getElementById(`c${el}`);
+	wk=parseInt(dest.textContent);
+	wk++;
+	dest.textContent=wk;
 }
