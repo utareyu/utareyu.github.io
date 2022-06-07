@@ -5,8 +5,34 @@
 //     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
 let post = document.getElementsByName("post");
 let dest;
-let act =[[],[]];
-// const post=;
+let act =[];
+
+function run(){
+	let wk;
+	const title=document.getElementById("title").value
+	const date=document.getElementById("date").value
+	let member;
+	let data;
+	let act;
+	
+	const postn = document.getElementsByName("post");
+	for(let i in postn.length){
+		//postの件数分回す　最初から順に見る感じ
+		member=postn[i].getElementsByClassName("member")["member"].value;
+		data=postn[i].getElementsByClassName("data")["textarea"].value;
+		const actn=document.getElementsByName("action"+i);
+		for(let j in actn.length){
+			//actの件数分回す　存在しない場合を考える
+			act[["emoji"]] = actn[j].input.value;
+			act[["cnt"]] = parseInt(actn[j].span.textContent);
+			wk["act"]+=act;
+		}
+	}
+	act =wk;
+	const post=[member,data];
+	act!=null ? wk={title,date,post} : wk={title,date,member,data} ;
+	console.log(wk);
+}
 
 function chgtitle(){
 	titlen.textContent=title.value;
@@ -25,7 +51,7 @@ function addPost(){
 		<div class="container content">
 			<div><input class="add" type="text" required="required" placeholder="発言者" oninput="fitwidth(this)" style="width:5em;"></div>
 			<div class="data">
-				<input class="add" type="text" required="required" placeholder="投稿内容" oninput="fitwidth(this)" style="font-weight: 100;width:14em;">
+			<textarea class="add" required="required" placeholder="投稿内容" oninput="fitwidth(this)" style="font-weight: 100;width:14em;"></textarea>
 			</div>
 			<div class="container act">
 				<button id="action${post.length}" class="add btn s" name="action${post.length}" class="add btn s" onclick="addAct(this)">😀 +</button>
@@ -72,6 +98,9 @@ function delElem(e){
 	e.remove();
 }
 
-function chgIco(){
-	console.log(this);
+function chgIco(e){
+	dest=document.getElementById("i"+e.id.slice(1));
+	wk=`https://utareyu.github.io/shirocom/ico/m${e.value}.png`
+	dest.src=wk;
+	console.log("change ico",dest);
 }

@@ -13,7 +13,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://utareyu.github.io/shirocom/Discord.css" rel="stylesheet">
-	<!-- <link href="../Discord.css" rel="stylesheet"> -->
 	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
 	<script src="test.js" async></script>
 	<title>会話まとめJSON入力補助ツール</title>
@@ -37,18 +36,18 @@
 		<div Style="flex-direction: column;">
 			<main id="main">
 				<div id="p0" name="post" class="container post">
-					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico\m2.png"></div>
+					<div class="container ico"><img id="i0" class="ico" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
 					<div class="container content">
-						<div>
-							<select class="add" required style="width:6em;" oninput="chgIco(this)">
-								<option>うた</option>
-								<option>えりんぎ</option>
-								<option>しろる</option>
-								<option>紅茶</option>
+						<div class="member">
+							<select id="s0" class="add" required="required" style="width:6em;" oninput="chgIco(this)">
+								<option value="0">うた</option>
+								<option value="1">えりんぎ</option>
+								<option value="2">しろる</option>
+								<option value="3">紅茶</option>
 							</select>
 						</div>
 						<div class="data">
-							<input class="add" type="text" required="required" placeholder="投稿内容" oninput="fitwidth(this)" style="font-weight: 100;width:14em;">
+							<textarea class="add" required="required" placeholder="投稿内容" oninput="fitwidth(this)" style="font-weight: 100;width:14em;"></textarea>
 						</div>
 						<div class="container act">
 							<button id="action0" name="action0" class="add btn s" onclick="addAct(this)">😀 +</button>
@@ -56,6 +55,7 @@
 					</div>
 				</div>
 				<button id="addp" class="add btn" onclick="addPost()">投稿を追加</button>
+				<button id="addp" class="add btn" onclick="run()">確定</button>
 
 
 				<div id="" class="container post">
