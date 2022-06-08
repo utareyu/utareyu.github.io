@@ -15,21 +15,29 @@ function run(){
 	let data;
 	let act;
 	
+	// let post= document.getElementsByName("post").length;
+	// member= document.getElementById(`s${0}`).value;
+	// data= document.getElementById("p0").getElementsByClassName("data")[0].children[0].value;
 	const postn = document.getElementsByName("post");
-	for(let i in postn.length){
+	console.log(postn.length);
+	let i=0;
+	for(i;i<1;i++){
 		//postの件数分回す　最初から順に見る感じ
-		member=postn[i].getElementsByClassName("member")["member"].value;
-		data=postn[i].getElementsByClassName("data")["textarea"].value;
+		console.log(i);
+		member=document.getElementsByClassName(`s${i}`)[0];
+		console.log(member,data);
+		data=document.getElementsByClassName(`p${i}`).getElementsByClassName("data")[0].children[0].value;
 		const actn=document.getElementsByName("action"+i);
 		for(let j in actn.length){
 			//actの件数分回す　存在しない場合を考える
 			act[["emoji"]] = actn[j].input.value;
 			act[["cnt"]] = parseInt(actn[j].span.textContent);
 			wk["act"]+=act;
+			console.log("!");
 		}
 	}
 	act =wk;
-	const post=[member,data];
+	post=[member,data];
 	act!=null ? wk={title,date,post} : wk={title,date,member,data} ;
 	console.log(wk);
 }
