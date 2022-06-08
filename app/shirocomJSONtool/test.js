@@ -19,14 +19,15 @@ function run(){
 	// member= document.getElementById(`s${0}`).value;
 	// data= document.getElementById("p0").getElementsByClassName("data")[0].children[0].value;
 	const postn = document.getElementsByName("post");
-	console.log(postn.length);
 	let i=0;
-	for(i;i<1;i++){
+	for(i in post){
 		//postの件数分回す　最初から順に見る感じ
-		console.log(i);
-		member=document.getElementsByClassName(`s${i}`)[0];
-		console.log(member,data);
-		data=document.getElementsByClassName(`p${i}`).getElementsByClassName("data")[0].children[0].value;
+		console.log(&s i,style="color:red; font-size:12px;");
+		member = document.getElementById("s"+i);
+		data = post[i].children[1].children[1].children[0].value;
+		console.log(i,member,data);
+		// return;
+		data=document.getElementById("p"+i).getElementsByClassName("data")[0].children[0].value;
 		const actn=document.getElementsByName("action"+i);
 		for(let j in actn.length){
 			//actの件数分回す　存在しない場合を考える
