@@ -89,7 +89,7 @@ function copynew(){
 					copybtn.value="コピーしたよ";
 					location.href='https://github.com/McbeEringi/shirokepu/edit/main/main.json#new_blob';
 		})
-				.catch(err => {
+				.catch(() => {
 					copybtn.value="なんでかコピーできないよ";
 		})
 	}else{

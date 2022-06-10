@@ -3,44 +3,51 @@
 //     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
 //     ■      ■                   ■      ■
 //     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
-let post = document.getElementsByName("post");
 let dest;
-let act =[];
+let act;
 
 function run(){
+	console.log(`%c-- running --`,'color: yellow;font-size: 1.2em;');
 	let wk;
-	const title=document.getElementById("title").value
-	const date=document.getElementById("date").value
+	const title=document.getElementById("title").value;
+	const date=document.getElementById("date").value.replace(/-/g,"").slice(2);
+	const postn = document.getElementsByName("post");
+	let post=[[]];
 	let member;
 	let data;
-	let act;
 	
-	// let post= document.getElementsByName("post").length;
-	// member= document.getElementById(`s${0}`).value;
-	// data= document.getElementById("p0").getElementsByClassName("data")[0].children[0].value;
-	const postn = document.getElementsByName("post");
+	console.log({postn});
 	let i=0;
-	for(i in post){
-		//postの件数分回す　最初から順に見る感じ
-		console.log(&s i,style="color:red; font-size:12px;");
-		member = document.getElementById("s"+i);
-		data = post[i].children[1].children[1].children[0].value;
-		console.log(i,member,data);
-		// return;
-		data=document.getElementById("p"+i).getElementsByClassName("data")[0].children[0].value;
+	do{
+		console.log(`%c---- ${i} ----`,'color: yellow;font-size: 2em;');
+
+		member = document.getElementById("s"+i).value;
+		console.log({member});
+		
+		data=document.querySelector(`#p${i} textarea`).value;
+		console.log({data});
+		
 		const actn=document.getElementsByName("action"+i);
-		for(let j in actn.length){
+		let j=0;
+		while(j<actn.length-1){
 			//actの件数分回す　存在しない場合を考える
-			act[["emoji"]] = actn[j].input.value;
-			act[["cnt"]] = parseInt(actn[j].span.textContent);
-			wk["act"]+=act;
-			console.log("!");
-		}
-	}
-	act =wk;
-	post=[member,data];
-	act!=null ? wk={title,date,post} : wk={title,date,member,data} ;
-	console.log(wk);
+			console.log(`#a${i}_${j}`);
+			var act={};
+			// act[i]={};
+			// act[i]["emoji"]={};
+			act[i] = {"emoji" : document.querySelector(`div[name="action${i}"]`).querySelector("input").value};
+			console.log(act[i]["emoji"]);
+			act[i] = {"cnt"  : parseInt(document.querySelector(`div[name="action${i}"]`).querySelector("span").textContent)};
+			console.log(act[i]["emoji"]);
+			console.log(`act[${i}]`,act[i]);
+			j++;
+		};
+		act!=null ? post[i]=[member,data] : post[i]=[member,data,act] ;
+		i++;
+	}while(i<postn.length)
+	wk={title,date,post};
+	console.log(`%c-- stop --`,'color: yellow;font-size: 1.2em;');
+	console.log(JSON.stringify(wk));
 }
 
 function chgtitle(){
@@ -53,13 +60,18 @@ function fitwidth(e){
 }
 
 function addPost(){
-	post = document.getElementsByName("post");
+	const post = document.getElementsByName("post");
 
 	wk=`<div id="p${post.length}" name="post" class="container post">
-	<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m2.png"></div>
+	<div class="container ico"><img id="i${post.length}" class="ico" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
 		<div class="container content">
-			<div><input class="add" type="text" required="required" placeholder="発言者" oninput="fitwidth(this)" style="width:5em;"></div>
-			<div class="data">
+			<select id="s${post.length}" class="add" required="required" style="width:6em;" oninput="chgIco(this)">
+			<option value="0">うた</option>
+			<option value="1">えりんぎ</option>
+			<option value="2">しろる</option>
+			<option value="3">紅茶</option>
+		</select>
+		<div class="data">
 			<textarea class="add" required="required" placeholder="投稿内容" oninput="fitwidth(this)" style="font-weight: 100;width:14em;"></textarea>
 			</div>
 			<div class="container act">
@@ -80,7 +92,7 @@ function addAct(e){
 	const en=document.getElementsByName(e.name).length-1;
 
 	wk=`<div id="a${el}_${en}" name="${e.id}" class="s" style="padding:0 3px;">
-	<input type="text" class="add" required="required" maxlength="1" style="margin:4px 1px 1px;height:1em; width:1em;"> 
+	<input type="text" class="add" required="required" maxlength="4" style="margin:4px 1px 1px;height:1em; width:1em;"> 
 		<span id="c${el}_${en}" onclick="addCnt(this)">0</span>
 	</div>
 	<span  id="a${el}_${en}s"style="font-size:12px;" onclick="delElem(this)">❌</span>`;
