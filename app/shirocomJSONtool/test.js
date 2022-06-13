@@ -32,22 +32,22 @@ function run(){
 		while(j<actn.length-1){
 			//actの件数分回す　存在しない場合を考える
 			console.log(`#a${i}_${j}`);
-			var act={};
-			// act[i]={};
-			// act[i]["emoji"]={};
-			act[i] = {"emoji" : document.querySelector(`div[name="action${i}"]`).querySelector("input").value};
-			console.log(act[i]["emoji"]);
-			act[i] = {"cnt"  : parseInt(document.querySelector(`div[name="action${i}"]`).querySelector("span").textContent)};
-			console.log(act[i]["emoji"]);
-			console.log(`act[${i}]`,act[i]);
+			wk={};
+			actarr=Array();
+			er=document.getElementById("a"+i+"_"+j).querySelector("input").value;
+			cr=parseInt(document.getElementById("a"+i+"_"+j).querySelector("span").textContent);
+			wk["emoji"] = er;
+			wk["cnt"] = cr;
+			actarr[j]=wk;
 			j++;
 		};
+		console.log({actarr});
 		act!=null ? post[i]=[member,data] : post[i]=[member,data,act] ;
 		i++;
 	}while(i<postn.length)
 	wk={title,date,post};
 	console.log(`%c-- stop --`,'color: yellow;font-size: 1.2em;');
-	console.log(JSON.stringify(wk));
+	console.log(wk);
 }
 
 function chgtitle(){
