@@ -32,10 +32,10 @@ function run(){
 		while(j<actn.length-1){
 			//actの件数分回す　存在しない場合を考える
 			console.log(`#a${i}_${j}`);
-			wk={};
-			actarr=Array();
+			wk={"emoji":"", "cnt":0};
 			er=document.getElementById("a"+i+"_"+j).querySelector("input").value;
 			cr=parseInt(document.getElementById("a"+i+"_"+j).querySelector("span").textContent);
+			actarr=Array();
 			wk["emoji"] = er;
 			wk["cnt"] = cr;
 			actarr[j]=wk;
