@@ -39,9 +39,9 @@ function run(){
 			wk["emoji"] = er;
 			wk["cnt"] = cr;
 			actarr[j]=wk;
+			console.log({actarr});
 			j++;
 		};
-		console.log({actarr});
 		act!=null ? post[i]=[member,data] : post[i]=[member,data,act] ;
 		i++;
 	}while(i<postn.length)
