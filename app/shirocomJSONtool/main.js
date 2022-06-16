@@ -89,7 +89,7 @@ function copyNew(e){
 					e.textContent="なんでかコピーできないよ";
 		})
 	}else{
-		e.value="結果が空欄だよ";
+		e.textContent="結果が空欄だよ";
 	}
 }
 
