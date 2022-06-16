@@ -1,8 +1,3 @@
-// ■ ■ ■ ■ ■  ■ ■ ■ ■ ■     ■ ■ ■    ■ ■ ■ ■ ■ 
-//     ■      ■           ■              ■
-//     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
-//     ■      ■                   ■      ■
-//     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
 let dest;
 
 
@@ -234,5 +229,5 @@ function reset(){
 	inp.forEach(e => {e.value=""});
 	tex.forEach(e => {e.value=""});
 	console.log("reset");
-	location.href='test.html';
+	location.href='index.html';
 }

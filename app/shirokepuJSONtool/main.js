@@ -19,7 +19,7 @@ function run(){
 	let wk="";
 
 	console.log(`%c---- ${no} ----`,'color: yellow;font-size: 2em;');
-	warn.textContent=smember.style=sdate.style=stag.style=sdata.style="";
+	warn.textContent=smember.style=sdate.style=stag.style=sdata.style=result.value="";
 
 	//member
 	for (let i in Object.keys(member)){
@@ -80,33 +80,27 @@ function run(){
 function copynew(){
 	if(result.value!=""){
 		navigator.clipboard.writeText(result.value)
-				.then(() => {
-					copybtn.value="コピーしたよ";
-					location.href='https://github.com/McbeEringi/shirokepu/edit/main/main.json#new_blob';
+			.then(() => {
+				copybtn.value="コピーしたよ";
+				location.href='https://github.com/McbeEringi/shirokepu/edit/main/main.json#new_blob';
 		})
-				.catch(err => {
-					copybtn.value="なんでかコピーできないよ";
+			.catch(() => {
+			copybtn.value="なんでかコピーできないよ";
 		})
 	}else{
 		copybtn.value="結果が空欄だよ";
 	}
 }
 
-function previewImage(obj){
-	var f = new FileReader();
-	f.onload = (function() {
-		preview.removeAttribute("width");
-		preview.src = f.result;
-	});
-	f.readAsDataURL(obj.files[0]);
-	console.log(img.files[0].name+" : "+img.files[0].size);
-	fsize.textContent=img.files[0].size+"byte";
-	img.files[0].size>=614400 ? fsize.style="font-size: 14px;color: orange;" : fsize.style="font-size: 14px;color: aliceblue;";
-}
-
-function previewreset(){
-	img.value =null;
-	preview.src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
-	preview.setAttribute("width",1);
-	fsize.textContent="";
+function reset(){
+	let inp = document.querySelectorAll("input");
+	let tex = document.querySelectorAll("textarea");
+	let mem = document.getElementsByName('member');
+	let tag = document.getElementsByName('tag');
+	inp.forEach(e => {e.value=""});
+	tex.forEach(e => {e.value=""});
+	mem.forEach(e => {e.checked=false});
+	tag.forEach(e => {e.checked=false});
+	console.log("reset");
+	location.href='index.html';
 }

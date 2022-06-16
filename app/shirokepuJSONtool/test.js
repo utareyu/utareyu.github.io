@@ -85,14 +85,27 @@ function run(){
 function copynew(){
 	if(result.value!=""){
 		navigator.clipboard.writeText(result.value)
-				.then(() => {
-					copybtn.value="コピーしたよ";
-					location.href='https://github.com/McbeEringi/shirokepu/edit/main/main.json#new_blob';
+			.then(() => {
+				copybtn.value="コピーしたよ";
+				location.href='https://github.com/McbeEringi/shirokepu/edit/main/main.json#new_blob';
 		})
-				.catch(() => {
-					copybtn.value="なんでかコピーできないよ";
+			.catch(() => {
+				copybtn.value="なんでかコピーできないよ";
 		})
 	}else{
 		copybtn.value="結果が空欄だよ";
 	}
+}
+
+function reset(){
+	let inp = document.querySelectorAll("input");
+	let tex = document.querySelectorAll("textarea");
+	let mem = document.getElementsByName('member');
+	let tag = document.getElementsByName('tag');
+	inp.forEach(e => {e.value=""});
+	tex.forEach(e => {e.value=""});
+	mem.forEach(e => {e.checked=false});
+	tag.forEach(e => {e.checked=false});
+	console.log("reset");
+	location.href='test.html';
 }

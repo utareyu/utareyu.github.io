@@ -10,6 +10,7 @@
 		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 		<link href="https://utareyu.github.io/css/prettify.css" rel="stylesheet">
 		<script src="main.js"></script>
+		<script src="https://utareyu.github.io/previewImage.js" async></script>
 		<title>発言まとめJSON入力補助</title>
 	</head>
 	<style>
@@ -62,7 +63,7 @@
 					</div>
 					<span>画像:</span>
 					<div>
-						<input id="img" type="file" accept='image/*' onchange="previewImage(this);" value="."><input type="button" value="リセット" onclick="previewreset()">
+						<input id="img" type="file" accept='image/*' onchange="previewImage(this);" value="."><button onclick="previewReset()">リセット</button>
 						<span id="fsize" style="font-size: 14px;color: aliceblue;"></span>
 						<p>
 							<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
@@ -78,6 +79,7 @@
 					<div>
 						<textarea id="result" rows="7" cols="40"></textarea><br>
 						<input id="copybtn" type="button" value="コピーして編集ページに移動" onclick="copynew()"><br><br>
+						<button class="add btn s" onclick="reset()" style="color: #e00;">全てリセット</button>
 					</div>
 					<code>入力例</code>
 					<pre class="prettyprint lang-json" style="margin:1em 0; width: 90%;">
@@ -96,6 +98,7 @@
 <strike>取消</strike> : &lt;strike&gt;文字&lt;/strike&gt;
 <i>斜体</i> : &lt;i&gt;文字&lt;/i&gt;
 <u>下線</u> : &lt;u&gt;文字&lt;/u&gt;
+<a>リンク</a> : &lt;a href="[URL]"&gt;&lt;/a&gt;
 </pre>
 				</div>
 			</section>
@@ -113,6 +116,5 @@
 		<footer>
 			<p>(c)2021~ utareyu</p>
 		</footer>
-		<script>img.value=fsize.textContent=result.value="";</script>
 	</body>
 </html>
