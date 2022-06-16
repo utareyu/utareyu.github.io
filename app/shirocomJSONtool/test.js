@@ -4,22 +4,30 @@
 //     ■      ■                   ■      ■
 //     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
 let dest;
-let act;
 
 function run(){
-	console.log(`%c-- running --`,'color: yellow;font-size: 1.2em;');
+	console.log(`%c-- running --`,'color: yellow;font-size: 2em;');
+	if((chk())==0){
+		document.getElementById("runp").textContent="NG";
+		console.log(`%c-- stop --`,'color: yellow;font-size: 2em;');
+		console.log("NG");
+		return;
+	};
+	document.getElementById("runp").textContent="";
 	let wk;
 	const title=document.getElementById("title").value;
 	const date=document.getElementById("date").value.replace(/-/g,"").slice(2);
 	const postn = document.getElementsByName("post");
-	let post=[[]];
+	let post=[];
+	let act=Array(null);
 	let member;
 	let data;
 	
 	console.log({postn});
 	let i=0;
 	do{
-		console.log(`%c---- ${i} ----`,'color: yellow;font-size: 2em;');
+		act=[];
+		console.log(`%c---- ${i} ----`,'color: yellow;');
 
 		member = document.getElementById("s"+i).value;
 		console.log({member});
@@ -27,32 +35,34 @@ function run(){
 		data=document.querySelector(`#p${i} textarea`).value;
 		console.log({data});
 		
-		const actn=document.getElementsByName("action"+i);
-		let j=0;
-		while(j<actn.length-1){
-			//actの件数分回す　存在しない場合を考える
-			console.log(`#a${i}_${j}`);
-			wk={"emoji":"", "cnt":0};
-			er=document.getElementById("a"+i+"_"+j).querySelector("input").value;
-			cr=parseInt(document.getElementById("a"+i+"_"+j).querySelector("span").textContent);
-			actarr=Array();
-			wk["emoji"] = er;
-			wk["cnt"] = cr;
-			actarr[j]=wk;
-			console.log({actarr});
-			j++;
-		};
-		act!=null ? post[i]=[member,data] : post[i]=[member,data,act] ;
+		const actn=document.getElementsByClassName("act"+i);
+		let k=0;
+		for(let j of actn){
+			act[k]={"emoji":j.querySelector("input").value ,"cnt":parseInt(j.querySelector("span").textContent)};
+			k++;
+		}
+		act.length==0 ? post[i]=[member,data] : post[i]=[member,data,act]/console.log(act);
 		i++;
 	}while(i<postn.length)
-	wk={title,date,post};
-	console.log(`%c-- stop --`,'color: yellow;font-size: 1.2em;');
+	wk={title,date,"cont":post};
+	console.log(`%c-- stop --`,'color: yellow;font-size: 2em;');
 	console.log(wk);
+
+	dest=document.getElementById("rst");
+	dest.value=JSON.stringify(wk);
+}
+
+function chk(){
+	let inp = document.querySelectorAll("input");
+	let tex = document.querySelectorAll("textarea");
+	let sw=1;
+	inp.forEach(e => {if(e.value=="")sw=0});
+	tex.forEach(e => {if(e.value=="")sw=0});
+	return sw;
 }
 
 function chgtitle(){
 	titlen.textContent=title.value;
-	// console.log(title.style.width);
 }
 
 function fitwidth(e){
@@ -87,11 +97,10 @@ function addPost(){
 }
 
 function addAct(e){
-	// console.log(e);
 	const el=(e.id).slice(e.id.length-1);
 	const en=document.getElementsByName(e.name).length-1;
 
-	wk=`<div id="a${el}_${en}" name="${e.id}" class="s" style="padding:0 3px;">
+	wk=`<div id="a${el}_${en}" name="${e.id}" class="s act${el}" style="padding:0 3px;">
 	<input type="text" class="add" required="required" maxlength="4" style="margin:4px 1px 1px;height:1em; width:1em;"> 
 		<span id="c${el}_${en}" onclick="addCnt(this)">0</span>
 	</div>
@@ -101,7 +110,7 @@ function addAct(e){
 	dest.insertAdjacentHTML("beforebegin",wk);
 	dest=document.getElementById(`c${el}_${en}`);
 	dest.textContent=0;
-	console.log("add action",dest);
+	console.log("add action",dest.parentElement);
 }
 
 function addCnt(e){
