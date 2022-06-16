@@ -126,7 +126,7 @@ function addPost(){
 				<button id="action${post.length}" class="add btn s" name="action${post.length}" class="add btn s" onclick="addAct(this);emo(this);">${emo()}</button>
 			</div>
 		</div>
-		<span  id="p${post.length}s" style="font-size:12px;" onclick="delElem(this)">❌</span>
+		<span  id="p${post.length}s" style="font-size:12px;cursor:pointer;" onclick="delElem(this)">❌</span>
 	</div>`;
 	
 	dest=document.getElementById(`p${post.length-1}`);
@@ -140,9 +140,9 @@ function addAct(e){
 
 	wk=`<div id="a${el}_${en}" name="${e.id}" class="s act${el}" style="padding:0 3px;">
 	<input type="text" class="add" required="required" maxlength="4" style="margin:4px 1px 1px;height:1em; width:1em;"> 
-		<span id="c${el}_${en}" onclick="addCnt(this)">0</span>
+		<span id="c${el}_${en}" style="cursor:pointer;" onclick="addCnt(this)">0</span>
 	</div>
-	<span  id="a${el}_${en}s"style="font-size:12px;" onclick="delElem(this)">❌</span>`;
+	<span  id="a${el}_${en}s" style="font-size:12px;cursor:pointer;" onclick="delElem(this)">❌</span>`;
 
 	dest=document.getElementById(e.id);
 	dest.insertAdjacentHTML("beforebegin",wk);

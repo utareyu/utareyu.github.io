@@ -15,6 +15,7 @@
 	<link href="https://utareyu.github.io/shirocom/Discord.css" rel="stylesheet">
 	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
 	<script src="test.js" async></script>
+	<script src="https://utareyu.github.io/previewImage.js" async></script>
 	<title>会話まとめJSON入力補助</title>
 </head>
 <body id="body" onload="emo(action0)">
@@ -72,7 +73,27 @@
 						</div>
 					</div>
 				</div>
+
+				<br>
 				<div id="" class="container post">
+					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m0.png"></div>
+					<div class="container content">
+						<div class="member">使い方</div>
+						<div class="data">
+							<p>
+								絵文字入力するとこの数字を押すと+1<br>
+								❌押すと手前の要素を削除<br><br>
+								確定を押すと変換される<br>
+								赤枠が出ている（未入力の箇所がある）とNG<br><br>
+								<img src="Screenshot_275.png"><br>
+								ここに結果を貼り付け<br>
+
+								見た目優先したせいで画像挿入用のやつが下のほうになったのでやりたい人は<a href="#Good_luck">頑張って</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m0.png"></div>
 					<div class="container content">
 						<div class="member">使いそうなHTML要素</div>
@@ -90,14 +111,28 @@
 						</div>
 					</div>
 				</div>
-				<div id="" class="container post">
+				<div class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m0.png"></div>
 					<div class="container content">
 						<div class="member">画像のアップロードについて</div>
 						<div class="data">
 							<p>
 								<img src="https://utareyu.github.io/app/shirokepuJSONtool/Screenshot_273.png"><br><img src="https://utareyu.github.io/app/shirokepuJSONtool/Screenshot_274.png"><br>ここ押して画像を選択<br>選択できたら下のほうの緑のボタン[Commit changes]を押す<br>
-								<a href="https://github.com/utareyu/shirokepu/tree/main/img/photos">アップロード先</a>
+								<a href="https://github.com/utareyu/shirocom/tree/main/img">アップロード先</a>
+							</p>
+						</div>
+					</div>
+				</div>
+				<div id="Good_luck" class="container post">
+					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m0.png"></div>
+					<div class="container content">
+						<div class="member">imgタグ生成</div>
+						<div class="data">
+							<input id="img" type="file" accept='image/*' onchange="previewImage(this);" value="."><input type="button" value="リセット" onclick="previewreset()">
+							<span id="fsize" style="font-size: 14px;color: aliceblue;"></span>
+							<p>
+								<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><br>
+								<a href="#body">上に戻る</a>
 							</p>
 						</div>
 					</div>
