@@ -24,7 +24,7 @@ function run(){
 	let wk="";
 
 	console.log(`%c---- ${no} ----`,'color: yellow;font-size: 2em;');
-	warn.textContent=smember.style=sdate.style=stag.style=sdata.style="";
+	warn.textContent=smember.style=sdate.style=stag.style=sdata.style=result.value="";
 
 	//member
 	for (let i in Object.keys(member)){

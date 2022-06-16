@@ -15,16 +15,17 @@
 	<link href="https://utareyu.github.io/shirocom/Discord.css" rel="stylesheet">
 	<link href="https://utareyu.github.io/img/utareyu.ico" rel="icon">
 	<script src="test.js" async></script>
-	<title>会話まとめJSON入力補助ツール</title>
+	<title>会話まとめJSON入力補助</title>
 </head>
-<body id="body">
+<body id="body" onload="emo(action0)">
+	<p>TEST</p>
 	<header>
 		<h1>会話まとめJSON入力補助ツール</h1>
 	</header>
 	<hr style="border:1px solid aliceblue;">
 	<header>
 		<h1>
-			<input id="title" class="add" type="text" required="required" placeholder="タイトル" oninput="fitwidth(this);chgtitle()" style="font-size: 28px;width:6em;">
+			<input id="title" class="add" type="text" required="required" placeholder="タイトル" oninput="fitWidth(this);chgTitle()" style="font-size: 28px;width:6em;">
 			<input id="date" class="add" type="date" required="reqired" style="font-size:50%;font-weight:400; ">
 		</h1>
 	</header>	
@@ -47,10 +48,10 @@
 							</select>
 						</div>
 						<div class="data">
-							<textarea class="add" required="required" placeholder="投稿内容" oninput="fitwidth(this)" style="font-weight: 100;width:14em;"></textarea>
+							<textarea class="add" required="required" placeholder="投稿内容" oninput="fitWidth(this)" style="font-weight: 100;width:14em;"></textarea>
 						</div>
 						<div class="container act">
-							<button id="action0" name="action0" class="add btn s" onclick="addAct(this)">😀 +</button>
+							<button id="action0" name="action0" class="add btn s" onclick="addAct(this);emo(this);">+</button>
 						</div>
 					</div>
 				</div>
@@ -64,7 +65,40 @@
 					<div class="container content">
 						<div class="member">結果</div>
 						<div class="data">
-							<textarea id="rst" style="width:max-content;"></textarea>
+							<textarea id="rst" class="add"></textarea>
+						</div>
+						<div class="container act">
+							<button id="action0" name="action0" class="add btn s" onclick="copyNew(this)">コピーして編集ページに移動</button>
+						</div>
+					</div>
+				</div>
+				<div id="" class="container post">
+					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m0.png"></div>
+					<div class="container content">
+						<div class="member">使いそうなHTML要素</div>
+						<div class="data">
+							<p>
+								改行 : &lt;br&gt;<br>
+								画像 : &lt;img src="[ファイル名]" width=[幅(200くらい)]&gt;<br>
+								段落 : &lt;p&gt;文字&lt;/p&gt;<br>
+								<b>太字</b> : &lt;b&gt;文字&lt;/b&gt;<br>
+								<strike>取消</strike> : &lt;strike&gt;文字&lt;/strike&gt;<br>
+								<i>斜体</i> : &lt;i&gt;文字&lt;/i&gt;<br>
+								<u>下線</u> : &lt;u&gt;文字&lt;/u&gt;<br>
+								<a>リンク</a> : &lt;a href="[URL]"&gt;&lt;/a&gt;
+							</p>
+						</div>
+					</div>
+				</div>
+				<div id="" class="container post">
+					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m0.png"></div>
+					<div class="container content">
+						<div class="member">画像のアップロードについて</div>
+						<div class="data">
+							<p>
+								<img src="https://utareyu.github.io/app/shirokepuJSONtool/Screenshot_273.png"><br><img src="https://utareyu.github.io/app/shirokepuJSONtool/Screenshot_274.png"><br>ここ押して画像を選択<br>選択できたら下のほうの緑のボタン[Commit changes]を押す<br>
+								<a href="https://github.com/utareyu/shirokepu/tree/main/img/photos">アップロード先</a>
+							</p>
 						</div>
 					</div>
 				</div>
