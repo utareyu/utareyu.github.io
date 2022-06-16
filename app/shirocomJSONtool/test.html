@@ -34,6 +34,10 @@
 	<section class="container">
 		<nav id="nav">
 			<p id="titlen"></p>
+			<p><a href="#How_to_use">使い方</a></p>
+			<p><a href="#HTML_elements_that_are_likely_to_be_used">使いそうなHTML要素</a></p>
+			<p><a href="#About_uploading_images">画像のアップロードについて</a></p>
+			<p><a href="#make_img_tag">imgタグ作るやつ</a></p>
 		</nav>
 		<div Style="flex-direction: column;">
 			<main id="main">
@@ -75,28 +79,27 @@
 				</div>
 
 				<br>
-				<div id="" class="container post">
+				<div id="How_to_use" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m0.png"></div>
 					<div class="container content">
-						<div class="member">使い方</div>
+						<div class="member"><a href="#body">使い方</a></div>
 						<div class="data">
 							<p>
 								絵文字入力するとこの数字を押すと+1<br>
-								❌押すと手前の要素を削除<br><br>
+								❌押すと手前の要素を削除<br>
+								見た目優先したせいでimgタグ作るやつが下のほうになったのでやりたい人は<a href="#make_img_tag">頑張って</a><br><br>
 								確定を押すと変換される<br>
 								赤枠が出ている（未入力の箇所がある）とNG<br><br>
 								<img src="Screenshot_275.png"><br>
-								ここに結果を貼り付け<br>
-
-								見た目優先したせいで画像挿入用のやつが下のほうになったのでやりたい人は<a href="#Good_luck">頑張って</a>
+								ここに結果を貼り付け
 							</p>
 						</div>
 					</div>
 				</div>
-				<div class="container post">
+				<div id="HTML_elements_that_are_likely_to_be_used" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m0.png"></div>
 					<div class="container content">
-						<div class="member">使いそうなHTML要素</div>
+						<div class="member"><a href="#body">使いそうなHTML要素</a></div>
 						<div class="data">
 							<p>
 								改行 : &lt;br&gt;<br>
@@ -111,10 +114,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="container post">
+				<div id="About_uploading_images" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m0.png"></div>
 					<div class="container content">
-						<div class="member">画像のアップロードについて</div>
+						<div class="member"><a href="#body">画像のアップロードについて</a></div>
 						<div class="data">
 							<p>
 								<img src="https://utareyu.github.io/app/shirokepuJSONtool/Screenshot_273.png"><br><img src="https://utareyu.github.io/app/shirokepuJSONtool/Screenshot_274.png"><br>ここ押して画像を選択<br>選択できたら下のほうの緑のボタン[Commit changes]を押す<br>
@@ -123,16 +126,17 @@
 						</div>
 					</div>
 				</div>
-				<div id="Good_luck" class="container post">
+				<div id="make_img_tag" class="container post">
 					<div class="container ico"><img class="ico" src="https://utareyu.github.io/shirocom/ico/m0.png"></div>
 					<div class="container content">
-						<div class="member">imgタグ生成</div>
+						<div class="member">imgタグ作るやつ</div>
 						<div class="data">
-							<input id="img" type="file" accept='image/*' onchange="previewImage(this);" value="."><input type="button" value="リセット" onclick="previewreset()">
+							<input id="img" type="file" accept='image/*' onchange="previewImage(this); createImg();" value="."><button class="add" onclick="previewReset_()">リセット</button>
 							<span id="fsize" style="font-size: 14px;color: aliceblue;"></span>
 							<p>
-								<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="><br>
-								<a href="#body">上に戻る</a>
+								<textarea id="imga" class="add" oninput="fitWidth(this)"></textarea><br>
+								<button class="add" onclick="copyImg(this)">コピーして上に戻る</button><br>
+								<img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
 							</p>
 						</div>
 					</div>

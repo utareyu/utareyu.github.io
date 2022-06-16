@@ -182,3 +182,37 @@ function emo(e=0){
 	e.textContent=String.fromCodePoint(Math.floor(Math.random()*0x44)+0x1f600)+" +";
 	e.textContent=e.textContent.replace("😠","🤔").replace("😡","🥺");
 }
+
+function createImg(){
+	let dest=document.getElementById("imga");
+	if(img.files.length!=0){
+		console.log(img.files[0].name);
+		dest.value=`<img src=\"img/photos/${img.files[0].name}\" width=200>`;
+	}
+}
+
+function previewReset_(){
+	const img=document.getElementById("img");
+	const imga=document.getElementById("imga");
+	const preview=document.getElementById("preview");
+	img.value =null;
+	preview.src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+	preview.setAttribute("width",1);
+	fsize.textContent=imga.value="";
+}
+
+function copyImg(e){
+	const imga=document.getElementById("imga");
+	if(imga.value!=""){
+		navigator.clipboard.writeText(imga.value)
+				.then(() => {
+					e.textContent="コピーしたよ";
+					location.href='#body';
+		})
+				.catch(() => {
+					e.textContent="なんでかコピーできないよ";
+		})
+	}else{
+		e.value="結果が空欄だよ";
+	}
+}
