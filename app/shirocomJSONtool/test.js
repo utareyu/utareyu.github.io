@@ -4,7 +4,7 @@
 //     ■      ■                   ■      ■
 //     ■      ■ ■ ■ ■ ■     ■ ■ ■        ■
 let dest;
-
+let ipost=iaction=1;
 
 function strIns(str, idx, val) {
 	var res = str.slice(0, idx) + val + str.slice(idx);
@@ -33,6 +33,12 @@ function run(){
 	
 	console.log({title,date});
 	let i=0;
+	//-変更必須
+	console.log(...postn);
+	//postnの子ノード（action）を取得したい
+	for(postn of val){
+		console.log(val.childNodes);
+	}
 	do{
 		act=[];
 		console.log(`%c---- ${i} ----`,'color: yellow;');
@@ -52,6 +58,7 @@ function run(){
 		console.log({member,data});
 		console.log(...act);
 	}while(i<postn.length)
+	//
 	wk={title,date,"cont":post};
 	console.log(`%c-- stop --`,'color: yellow;font-size: 2em;');
 	console.log(wk);
@@ -111,11 +118,12 @@ function fitWidth(e){
 
 function addPost(){
 	const post = document.getElementsByName("post");
+	// let postl = String(post.length).padStart(2,'0');
 
-	wk=`<div id="p${post.length}" name="post" class="container post">
-	<div class="container ico"><img id="i${post.length}" class="ico" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
+	wk=`<div id="p${ipost}" name="post" class="container post">
+	<div class="container ico"><img id="i${ipost}" class="ico" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="></div>
 		<div class="container content">
-			<select id="s${post.length}" class="add" required="required" style="width:6em;" oninput="chgIco(this)">
+			<select id="s${ipost}" class="add" required="required" style="width:6em;" oninput="chgIco(this)">
 			<option value="0">うた</option>
 			<option value="1">えりんぎ</option>
 			<option value="2">しろる</option>
@@ -125,33 +133,34 @@ function addPost(){
 			<textarea class="add" required="required" placeholder="投稿内容" oninput="fitWidth(this)" style="font-weight: 100;width:14em;"></textarea>
 			</div>
 			<div class="container act">
-				<button id="action${post.length}" class="add btn s" name="action${post.length}" class="add btn s" onclick="addAct(this);emo(this);">${emo()}</button>
+				<button id="action${ipost}" class="add btn s" name="action${ipost}" class="add btn s" onclick="addAct(this);emo(this);">${emo()}</button>
 			</div>
 		</div>
-		<span  id="p${post.length}s" style="font-size:12px;cursor:pointer;" onclick="delElem(this)">❌</span>
+		<span  id="p${ipost}s" style="font-size:12px;cursor:pointer;" onclick="delElem(this)">❌</span>
 	</div>`;
 	
-	dest=document.getElementById(`p${post.length-1}`);
+	dest=post[post.length-1];
 	dest.insertAdjacentHTML("afterend",wk);
-	console.log("add post",document.getElementById(`p${post.length-1}`));
+	console.log("add post",ipost);
+	ipost++;
 }
 
 
 function addAct(e){
-	const el=(e.id).slice(e.id.length-1);
-	const en=document.getElementsByName(e.name).length-1;
-
-	wk=`<div id="a${el}_${en}" name="${e.id}" class="s act${el}" style="padding:0 3px;">
+	const action = document.getElementsByName(`action${iaction}}`);
+//iaction
+	wk=`<div id="a${iaction}" name="${e.id}" class="s act${ipost}" style="padding:0 3px;">
 	<input type="text" class="add" required="required" maxlength="4" style="margin:4px 1px 1px;height:1em; width:1em;"> 
-		<span id="c${el}_${en}" style="cursor:pointer;" onclick="addCnt(this)">0</span>
+		<span id="c${iaction}" style="cursor:pointer;" onclick="addCnt(this)">0</span>
 	</div>
-	<span  id="a${el}_${en}s" style="font-size:12px;cursor:pointer;" onclick="delElem(this)">❌</span>`;
+	<span  id="a${iaction}s" style="font-size:12px;cursor:pointer;" onclick="delElem(this)">❌</span>`;
 
 	dest=document.getElementById(e.id);
 	dest.insertAdjacentHTML("beforebegin",wk);
-	dest=document.getElementById(`c${el}_${en}`);
+	dest=document.querySelector(`#c${iaction} `);//action[action.length-1];
 	dest.textContent=0;
 	console.log("add action",dest.parentElement);
+	iaction++;
 }
 
 
