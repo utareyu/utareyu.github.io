@@ -223,6 +223,12 @@ function copyImg(e){
 }
 
 
+function resetq(e){
+	wk=`<button class="add btn s" onclick="reset()" style="color: #e00;">まじ？</button>`
+	e.insertAdjacentHTML("afterend",wk);
+}
+
+
 function reset(){
 	let inp = document.querySelectorAll("input");
 	let tex = document.querySelectorAll("textarea");
