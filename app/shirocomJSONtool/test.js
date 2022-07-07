@@ -30,18 +30,44 @@ function run(){
 	let act=Array(null);
 	let member;
 	let data;
-	
+
 	console.log({title,date});
 	let i=0;
-	//-変更必須
 	console.log(...postn);
 	//postnの子ノード（action）を取得したい
-	for(postn of val){
-		console.log(val.childNodes);
+	let pi=1
+	for(pkey of postn){
+			console.log(`%c---- ${pi} ----`,'color: yellow;');
+		member = parseInt(document.getElementById("s"+i).value);
+			console.log({member});
+		data = pkey.querySelector(".data .add").value.replace(/\n/g,"<br>").replace(/"/g,"\\\"");
+			console.log({data});
+
+		const actt=document.getElementsByName("action"+(parseInt(pkey.id.slice(pkey.id.length-1))+1)+"not:button");
+		// console.log("act"+(parseInt(pkey.id.slice(pkey.id.length-1))+1),actt);
+		let j=1;
+		let k=0;
+		let acta={};
+		for(akey of actt){
+			k=parseInt(akey);
+			acta[k]={};
+			// console.log(akey);
+			const emoji = akey.querySelector("input").value;
+			const cnt = parseInt(akey.querySelector("span").textContent);
+			console.log({emoji,cnt});
+
+			acta[k]={emoji ,cnt};
+			act[j]=acta[k];
+			j++
+		}
+		pi++;
 	}
-	do{
+	console.log(act);
+	
+	//-変更必須
+	while(1==2){
 		act=[];
-		console.log(`%c---- ${i} ----`,'color: yellow;');
+		console.log(`---- ${i} ----`);
 
 		member = parseInt(document.getElementById("s"+i).value);
 		
@@ -57,7 +83,7 @@ function run(){
 		i++;
 		console.log({member,data});
 		console.log(...act);
-	}while(i<postn.length)
+	}
 	//
 	wk={title,date,"cont":post};
 	console.log(`%c-- stop --`,'color: yellow;font-size: 2em;');
